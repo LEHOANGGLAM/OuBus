@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OUBus", "OUBus\OUBus.csproj", "{34E05A2A-AB8F-4B13-982A-43BE56533021}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34E05A2A-AB8F-4B13-982A-43BE56533021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E05A2A-AB8F-4B13-982A-43BE56533021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E05A2A-AB8F-4B13-982A-43BE56533021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E05A2A-AB8F-4B13-982A-43BE56533021}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89F33F69-39FB-4952-B6FE-95D8E569A1DA}
+	EndGlobalSection
+EndGlobal
