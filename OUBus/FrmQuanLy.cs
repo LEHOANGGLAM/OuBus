@@ -41,5 +41,19 @@ namespace OUBus
             frmdsvx.MdiParent = this;
             frmdsvx.Show();
         }
+
+        private void menuThongKe_Click(object sender, EventArgs e)
+        {
+            FrmTKDT tkdt = new FrmTKDT();
+            tkdt.MdiParent = this;
+            tkdt.Show();
+        }
+
+        private void menuQLNV_Click(object sender, EventArgs e)
+        {
+            FrmQLNV qlnv = new FrmQLNV();
+            qlnv.MdiParent = this;
+            qlnv.Show();
+        }
     }
 }

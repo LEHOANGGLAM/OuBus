@@ -53,5 +53,12 @@ namespace OUBus
            
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmDangKi dk = new FrmDangKi();
+            dk.ShowDialog();
+            this.Close();
+        }
     }
 }

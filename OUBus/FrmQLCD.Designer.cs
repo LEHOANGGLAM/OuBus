@@ -56,11 +56,11 @@ namespace OUBus
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Pacifico", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(400, 1);
+            this.label1.Font = new System.Drawing.Font("Pacifico", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(390, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 72);
+            this.label1.Size = new System.Drawing.Size(229, 68);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lịch chuyến đi";
             // 
@@ -232,7 +232,7 @@ namespace OUBus
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BackgroundImage = global::OUBus.Properties.Resources.main;
+            this.BackgroundImage = global::OUBus.Properties.Resources.Background2;
             this.ClientSize = new System.Drawing.Size(1137, 608);
             this.Controls.Add(this.Thgiankhoihanh);
             this.Controls.Add(this.dataGridView1);

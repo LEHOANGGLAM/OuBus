@@ -44,10 +44,10 @@ namespace OUBus
             this.label7 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnBan = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@ namespace OUBus
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 173);
+            this.textBox1.Location = new System.Drawing.Point(113, 173);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(142, 20);
             this.textBox1.TabIndex = 0;
@@ -139,7 +139,7 @@ namespace OUBus
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1085, 254);
+            this.label6.Location = new System.Drawing.Point(1011, 257);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 16);
             this.label6.TabIndex = 1;
@@ -166,8 +166,8 @@ namespace OUBus
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Pacifico", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label7.Location = new System.Drawing.Point(478, 0);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(427, -2);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(275, 72);
             this.label7.TabIndex = 1;
@@ -188,24 +188,16 @@ namespace OUBus
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // textBox4
+            // radioButton3
             // 
-            this.textBox4.Location = new System.Drawing.Point(109, 24);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(183, 20);
-            this.textBox4.TabIndex = 0;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(35, 68);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Theo mã CĐ";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(217, 68);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(75, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Theo SĐT";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
@@ -218,20 +210,28 @@ namespace OUBus
             this.radioButton2.Text = "Theo tên KH";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioButton1
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(217, 68);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(75, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Theo SĐT";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(35, 68);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Theo mã CĐ";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(109, 24);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(183, 20);
+            this.textBox4.TabIndex = 0;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // btnBan
             // 
-            this.btnBan.Location = new System.Drawing.Point(1068, 311);
+            this.btnBan.Location = new System.Drawing.Point(1000, 314);
             this.btnBan.Name = "btnBan";
             this.btnBan.Size = new System.Drawing.Size(107, 51);
             this.btnBan.TabIndex = 6;
@@ -240,7 +240,7 @@ namespace OUBus
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(1068, 398);
+            this.btnSua.Location = new System.Drawing.Point(1000, 412);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(107, 48);
             this.btnSua.TabIndex = 6;
@@ -259,7 +259,7 @@ namespace OUBus
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(1068, 483);
+            this.btnThoat.Location = new System.Drawing.Point(1000, 514);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(107, 48);
             this.btnThoat.TabIndex = 6;
@@ -270,8 +270,8 @@ namespace OUBus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::OUBus.Properties.Resources.main;
-            this.ClientSize = new System.Drawing.Size(1253, 651);
+            this.BackgroundImage = global::OUBus.Properties.Resources.Background2;
+            this.ClientSize = new System.Drawing.Size(1134, 651);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnSua);

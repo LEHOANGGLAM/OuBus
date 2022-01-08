@@ -59,12 +59,14 @@ namespace OUBus
             this.menuThongKe.Name = "menuThongKe";
             this.menuThongKe.Size = new System.Drawing.Size(207, 41);
             this.menuThongKe.Text = "Thống kê và doanh thu";
+            this.menuThongKe.Click += new System.EventHandler(this.menuThongKe_Click);
             // 
             // menuQLNV
             // 
             this.menuQLNV.Name = "menuQLNV";
             this.menuQLNV.Size = new System.Drawing.Size(174, 41);
             this.menuQLNV.Text = "Quản lý nhân viên ";
+            this.menuQLNV.Click += new System.EventHandler(this.menuQLNV_Click);
             // 
             // menuQLCD
             // 

@@ -13,3 +13,22 @@ C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FrmQuanLy.resources
 C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FrmNhanVien.resources
 C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FrmQLBV.resources
 C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FrmDSVX.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\bin\Debug\OUBus.exe.config
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\bin\Debug\OUBus.exe
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\bin\Debug\OUBus.pdb
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmDSVX.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmQLBV.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FormDN.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmNhanVien.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmQuanLy.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.Properties.Resources.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmQLCD.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.exe
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.pdb
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmDangKi.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmTKDT.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmQLNV.resources
+C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmThemNV.resources
