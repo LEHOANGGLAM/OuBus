@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2fa6a113744146c1b79e4e5e69dc460f" Name="Diagram1">
+        <EntityTypeShape EntityType="OuBusModel.ChuyenDi" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OuBusModel.NhanVien" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OuBusModel.PhanLoaiNhanVien" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OuBusModel.PhanQuyen" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OuBusModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OuBusModel.TaiKhoanDangNhap" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OuBusModel.VeXe" Width="1.5" PointX="9.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OuBusModel.XeKhach" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OuBusModel.BaoCaoDoanhThuChuyenDi" Width="1.5" PointX="9.75" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="OuBusModel.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" ManuallyRouted="false" />
+        <AssociationConnector Association="OuBusModel.FK_ChuyenDi_XeKhach" ManuallyRouted="false" />
+        <AssociationConnector Association="OuBusModel.FK_VeXe_ChuyenDi" ManuallyRouted="false" />
+        <AssociationConnector Association="OuBusModel.FK_NhanVien_PhanLoaiNhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="OuBusModel.FK_TaiKhoanDangNhap_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="OuBusModel.FK_XeKhach_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="OuBusModel.FK_TaiKhoanDangNhap_PhanQuyen" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
