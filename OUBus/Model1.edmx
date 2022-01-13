@@ -4,9 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OuBusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+    <Schema Namespace="OuBusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BaoCaoDoanhThuChuyenDi">
           <Key>
             <PropertyRef Name="MaChuyenDi" />
@@ -81,7 +79,7 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
           <Key>
             <PropertyRef Name="MaVe" />
           </Key>
-          <Property Name="MaVe" Type="int" Nullable="false" />
+          <Property Name="MaVe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaChuyenDi" Type="int" />
           <Property Name="TenKhachHang" Type="nvarchar" MaxLength="20" />
           <Property Name="SoDienThoai" Type="int" />
@@ -245,8 +243,6 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
           <Parameter Name="khoihanh" Type="nvarchar" Mode="In" />
           <Parameter Name="ketthuc" Type="nvarchar" Mode="In" />
           <Parameter Name="giave" Type="int" Mode="In" />
-          <Parameter Name="ghetrong" Type="int" Mode="In" />
-          <Parameter Name="ghedat" Type="int" Mode="In" />
         </Function>
         <Function Name="ThemTaiKhoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="taikhoan" Type="varchar" Mode="In" />
@@ -258,7 +254,6 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
           <Parameter Name="ngaysinh" Type="date" Mode="In" />
         </Function>
         <Function Name="ThemThongTinNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="manv" Type="int" Mode="In" />
           <Parameter Name="maloai" Type="int" Mode="In" />
           <Parameter Name="ten" Type="nvarchar" Mode="In" />
           <Parameter Name="ngaysinh" Type="date" Mode="In" />
@@ -266,7 +261,6 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
           <Parameter Name="cmnd" Type="int" Mode="In" />
         </Function>
         <Function Name="ThemVeXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="mave" Type="int" Mode="In" />
           <Parameter Name="machuyendi" Type="int" Mode="In" />
           <Parameter Name="ten" Type="nvarchar" Mode="In" />
           <Parameter Name="sdt" Type="int" Mode="In" />
@@ -285,6 +279,7 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
           <Parameter Name="mave" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="OuBusModelStoreContainer">
+          <EntitySet Name="BaoCaoDoanhThuChuyenDi" EntityType="Self.BaoCaoDoanhThuChuyenDi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChuyenDi" EntityType="Self.ChuyenDi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhanLoaiNhanVien" EntityType="Self.PhanLoaiNhanVien" Schema="dbo" store:Type="Tables" />
@@ -293,14 +288,6 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
           <EntitySet Name="TaiKhoanDangNhap" EntityType="Self.TaiKhoanDangNhap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VeXe" EntityType="Self.VeXe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="XeKhach" EntityType="Self.XeKhach" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BaoCaoDoanhThuChuyenDi" EntityType="Self.BaoCaoDoanhThuChuyenDi" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [BaoCaoDoanhThuChuyenDi].[MaChuyenDi] AS [MaChuyenDi], 
-    [BaoCaoDoanhThuChuyenDi].[DoanhThu] AS [DoanhThu], 
-    [BaoCaoDoanhThuChuyenDi].[SoVe] AS [SoVe], 
-    [BaoCaoDoanhThuChuyenDi].[Ngay] AS [Ngay]
-    FROM [dbo].[BaoCaoDoanhThuChuyenDi] AS [BaoCaoDoanhThuChuyenDi]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" Association="Self.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
             <End Role="ChuyenDi" EntitySet="ChuyenDi" />
             <End Role="BaoCaoDoanhThuChuyenDi" EntitySet="BaoCaoDoanhThuChuyenDi" />
@@ -330,8 +317,7 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
             <End Role="XeKhach" EntitySet="XeKhach" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OuBusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -624,8 +610,6 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
             <Parameter Name="khoihanh" Mode="In" Type="String" />
             <Parameter Name="ketthuc" Mode="In" Type="String" />
             <Parameter Name="giave" Mode="In" Type="Int32" />
-            <Parameter Name="ghetrong" Mode="In" Type="Int32" />
-            <Parameter Name="ghedat" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ThemTaiKhoan">
             <Parameter Name="taikhoan" Mode="In" Type="String" />
@@ -637,7 +621,6 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
             <Parameter Name="ngaysinh" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="ThemThongTinNV">
-            <Parameter Name="manv" Mode="In" Type="Int32" />
             <Parameter Name="maloai" Mode="In" Type="Int32" />
             <Parameter Name="ten" Mode="In" Type="String" />
             <Parameter Name="ngaysinh" Mode="In" Type="DateTime" />
@@ -645,23 +628,22 @@ warning 6002: The table/view 'OuBus.dbo.BaoCaoDoanhThuChuyenDi' does not have a 
             <Parameter Name="cmnd" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ThemVeXe">
-            <Parameter Name="mave" Mode="In" Type="Int32" />
             <Parameter Name="machuyendi" Mode="In" Type="Int32" />
             <Parameter Name="ten" Mode="In" Type="String" />
             <Parameter Name="sdt" Mode="In" Type="Int32" />
             <Parameter Name="vitri" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="XoaChuyenDi">
-            <Parameter Name="machuyendi" Mode="In" Type="Int32" />
+          <Parameter Name="machuyendi" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="XoaTaiKhoan">
-            <Parameter Name="manhanvien" Mode="In" Type="Int32" />
+          <Parameter Name="manhanvien" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="XoaThongTinNV">
-            <Parameter Name="manv" Mode="In" Type="Int32" />
+          <Parameter Name="manv" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="XoaVeXe">
-            <Parameter Name="mave" Mode="In" Type="Int32" />
+          <Parameter Name="mave" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">

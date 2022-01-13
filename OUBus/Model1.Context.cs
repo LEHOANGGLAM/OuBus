@@ -227,7 +227,7 @@ namespace OUBus
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SuaThongTinVeXe", maveParameter, machuyendiParameter, tenParameter, sdtParameter, vitriParameter);
         }
     
-        public virtual int ThemChuyenDi(Nullable<int> machuyendi, Nullable<int> maxe, Nullable<System.DateTime> ngay, Nullable<System.TimeSpan> thoigian, string khoihanh, string ketthuc, Nullable<int> giave, Nullable<int> ghetrong, Nullable<int> ghedat)
+        public virtual int ThemChuyenDi(Nullable<int> machuyendi, Nullable<int> maxe, Nullable<System.DateTime> ngay, Nullable<System.TimeSpan> thoigian, string khoihanh, string ketthuc, Nullable<int> giave)
         {
             var machuyendiParameter = machuyendi.HasValue ?
                 new ObjectParameter("machuyendi", machuyendi) :
@@ -257,15 +257,7 @@ namespace OUBus
                 new ObjectParameter("giave", giave) :
                 new ObjectParameter("giave", typeof(int));
     
-            var ghetrongParameter = ghetrong.HasValue ?
-                new ObjectParameter("ghetrong", ghetrong) :
-                new ObjectParameter("ghetrong", typeof(int));
-    
-            var ghedatParameter = ghedat.HasValue ?
-                new ObjectParameter("ghedat", ghedat) :
-                new ObjectParameter("ghedat", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ThemChuyenDi", machuyendiParameter, maxeParameter, ngayParameter, thoigianParameter, khoihanhParameter, ketthucParameter, giaveParameter, ghetrongParameter, ghedatParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ThemChuyenDi", machuyendiParameter, maxeParameter, ngayParameter, thoigianParameter, khoihanhParameter, ketthucParameter, giaveParameter);
         }
     
         public virtual int ThemTaiKhoan(string taikhoan, string matkhau, Nullable<int> manv, Nullable<int> maquyen, string ten, string email, Nullable<System.DateTime> ngaysinh)
@@ -301,12 +293,8 @@ namespace OUBus
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ThemTaiKhoan", taikhoanParameter, matkhauParameter, manvParameter, maquyenParameter, tenParameter, emailParameter, ngaysinhParameter);
         }
     
-        public virtual int ThemThongTinNV(Nullable<int> manv, Nullable<int> maloai, string ten, Nullable<System.DateTime> ngaysinh, string quequan, Nullable<int> cmnd)
+        public virtual int ThemThongTinNV(Nullable<int> maloai, string ten, Nullable<System.DateTime> ngaysinh, string quequan, Nullable<int> cmnd)
         {
-            var manvParameter = manv.HasValue ?
-                new ObjectParameter("manv", manv) :
-                new ObjectParameter("manv", typeof(int));
-    
             var maloaiParameter = maloai.HasValue ?
                 new ObjectParameter("maloai", maloai) :
                 new ObjectParameter("maloai", typeof(int));
@@ -327,15 +315,11 @@ namespace OUBus
                 new ObjectParameter("cmnd", cmnd) :
                 new ObjectParameter("cmnd", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ThemThongTinNV", manvParameter, maloaiParameter, tenParameter, ngaysinhParameter, quequanParameter, cmndParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ThemThongTinNV", maloaiParameter, tenParameter, ngaysinhParameter, quequanParameter, cmndParameter);
         }
     
-        public virtual int ThemVeXe(Nullable<int> mave, Nullable<int> machuyendi, string ten, Nullable<int> sdt, string vitri)
+        public virtual int ThemVeXe(Nullable<int> machuyendi, string ten, Nullable<int> sdt, string vitri)
         {
-            var maveParameter = mave.HasValue ?
-                new ObjectParameter("mave", mave) :
-                new ObjectParameter("mave", typeof(int));
-    
             var machuyendiParameter = machuyendi.HasValue ?
                 new ObjectParameter("machuyendi", machuyendi) :
                 new ObjectParameter("machuyendi", typeof(int));
@@ -352,7 +336,7 @@ namespace OUBus
                 new ObjectParameter("vitri", vitri) :
                 new ObjectParameter("vitri", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ThemVeXe", maveParameter, machuyendiParameter, tenParameter, sdtParameter, vitriParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ThemVeXe", machuyendiParameter, tenParameter, sdtParameter, vitriParameter);
         }
     
         public virtual int XoaChuyenDi(Nullable<int> machuyendi)
