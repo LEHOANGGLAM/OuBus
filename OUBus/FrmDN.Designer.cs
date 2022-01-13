@@ -118,7 +118,6 @@ namespace OUBus
             this.cbChon.Name = "cbChon";
             this.cbChon.Size = new System.Drawing.Size(239, 28);
             this.cbChon.TabIndex = 1;
-            this.cbChon.SelectedIndexChanged += new System.EventHandler(this.cbChon_SelectedIndexChanged);
             // 
             // btnThoat
             // 
@@ -130,7 +129,6 @@ namespace OUBus
             this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = false;
-            this.btnThoat.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnDN
             // 

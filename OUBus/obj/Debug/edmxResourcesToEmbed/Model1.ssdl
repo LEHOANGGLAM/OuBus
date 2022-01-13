@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OuBusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BaoCaoDoanhThuChuyenDi">
+    <Key>
+      <PropertyRef Name="MaChuyenDi" />
+    </Key>
+    <Property Name="MaChuyenDi" Type="int" Nullable="false" />
+    <Property Name="DoanhThu" Type="int" />
+    <Property Name="SoVe" Type="int" />
+    <Property Name="Ngay" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ChuyenDi">
+    <Key>
+      <PropertyRef Name="MaChuyenDi" />
+    </Key>
+    <Property Name="MaChuyenDi" Type="int" Nullable="false" />
+    <Property Name="MaXe" Type="int" />
+    <Property Name="NgayKhoiHanh" Type="date" />
+    <Property Name="ThoiGianKhoiHanh" Type="time" Precision="7" />
+    <Property Name="DiemKhoiHanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiemKetThuc" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoGheTrong" Type="int" />
+    <Property Name="SoGheDat" Type="int" />
+    <Property Name="GiaVe" Type="int" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="MaNhanVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNhanVien" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaLoaiNhanVien" Type="int" />
+    <Property Name="NgaySinh" Type="datetime" />
+    <Property Name="QueQuan" Type="nvarchar" MaxLength="50" />
+    <Property Name="CMND" Type="int" />
+  </EntityType>
+  <EntityType Name="PhanLoaiNhanVien">
+    <Key>
+      <PropertyRef Name="MaLoaiNhanVien" />
+    </Key>
+    <Property Name="MaLoaiNhanVien" Type="int" Nullable="false" />
+    <Property Name="TenLoaiNhanVien" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="MaQuyen" />
+    </Key>
+    <Property Name="MaQuyen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenQuyen" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TaiKhoanDangNhap">
+    <Key>
+      <PropertyRef Name="TaiKhoan" />
+    </Key>
+    <Property Name="TaiKhoan" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MatKhau" Type="varchar" MaxLength="20" />
+    <Property Name="MaNhanVien" Type="int" />
+    <Property Name="MaQuyen" Type="int" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="date" />
+  </EntityType>
+  <EntityType Name="VeXe">
+    <Key>
+      <PropertyRef Name="MaVe" />
+    </Key>
+    <Property Name="MaVe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaChuyenDi" Type="int" />
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="20" />
+    <Property Name="SoDienThoai" Type="int" />
+    <Property Name="NgayDat" Type="date" />
+    <Property Name="VitriGhe" Type="varchar" MaxLength="5" />
+    <Property Name="TinhTrang" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="XeKhach">
+    <Key>
+      <PropertyRef Name="MaXe" />
+    </Key>
+    <Property Name="MaXe" Type="int" Nullable="false" />
+    <Property Name="MaNhanVien" Type="int" />
+    <Property Name="BienSoXe" Type="varchar" MaxLength="10" />
+    <Property Name="SoGhe" Type="int" />
+  </EntityType>
+  <Association Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
+    <End Role="ChuyenDi" Type="Self.ChuyenDi" Multiplicity="1" />
+    <End Role="BaoCaoDoanhThuChuyenDi" Type="Self.BaoCaoDoanhThuChuyenDi" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenDi">
+        <PropertyRef Name="MaChuyenDi" />
+      </Principal>
+      <Dependent Role="BaoCaoDoanhThuChuyenDi">
+        <PropertyRef Name="MaChuyenDi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChuyenDi_XeKhach">
+    <End Role="XeKhach" Type="Self.XeKhach" Multiplicity="0..1" />
+    <End Role="ChuyenDi" Type="Self.ChuyenDi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XeKhach">
+        <PropertyRef Name="MaXe" />
+      </Principal>
+      <Dependent Role="ChuyenDi">
+        <PropertyRef Name="MaXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhanVien_PhanLoaiNhanVien">
+    <End Role="PhanLoaiNhanVien" Type="Self.PhanLoaiNhanVien" Multiplicity="0..1" />
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiNhanVien">
+        <PropertyRef Name="MaLoaiNhanVien" />
+      </Principal>
+      <Dependent Role="NhanVien">
+        <PropertyRef Name="MaLoaiNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoanDangNhap_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="TaiKhoanDangNhap" Type="Self.TaiKhoanDangNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="TaiKhoanDangNhap">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoanDangNhap_PhanQuyen">
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="0..1" />
+    <End Role="TaiKhoanDangNhap" Type="Self.TaiKhoanDangNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanQuyen">
+        <PropertyRef Name="MaQuyen" />
+      </Principal>
+      <Dependent Role="TaiKhoanDangNhap">
+        <PropertyRef Name="MaQuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VeXe_ChuyenDi">
+    <End Role="ChuyenDi" Type="Self.ChuyenDi" Multiplicity="0..1" />
+    <End Role="VeXe" Type="Self.VeXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenDi">
+        <PropertyRef Name="MaChuyenDi" />
+      </Principal>
+      <Dependent Role="VeXe">
+        <PropertyRef Name="MaChuyenDi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XeKhach_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="XeKhach" Type="Self.XeKhach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="XeKhach">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SuaThongTinChuyenDi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="machuyendi" Type="int" Mode="In" />
+    <Parameter Name="maxe" Type="int" Mode="In" />
+    <Parameter Name="ngay" Type="date" Mode="In" />
+    <Parameter Name="thoigian" Type="time" Mode="In" />
+    <Parameter Name="khoihanh" Type="nvarchar" Mode="In" />
+    <Parameter Name="ketthuc" Type="nvarchar" Mode="In" />
+    <Parameter Name="giave" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SuaThongTinNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="int" Mode="In" />
+    <Parameter Name="maloai" Type="int" Mode="In" />
+    <Parameter Name="ten" Type="nvarchar" Mode="In" />
+    <Parameter Name="ngaysinh" Type="date" Mode="In" />
+    <Parameter Name="quequan" Type="nvarchar" Mode="In" />
+    <Parameter Name="cmnd" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SuaThongTinVeXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mave" Type="int" Mode="In" />
+    <Parameter Name="machuyendi" Type="int" Mode="In" />
+    <Parameter Name="ten" Type="nvarchar" Mode="In" />
+    <Parameter Name="sdt" Type="int" Mode="In" />
+    <Parameter Name="vitri" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ThemChuyenDi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="machuyendi" Type="int" Mode="In" />
+    <Parameter Name="maxe" Type="int" Mode="In" />
+    <Parameter Name="ngay" Type="date" Mode="In" />
+    <Parameter Name="thoigian" Type="time" Mode="In" />
+    <Parameter Name="khoihanh" Type="nvarchar" Mode="In" />
+    <Parameter Name="ketthuc" Type="nvarchar" Mode="In" />
+    <Parameter Name="giave" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ThemTaiKhoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="taikhoan" Type="varchar" Mode="In" />
+    <Parameter Name="matkhau" Type="varchar" Mode="In" />
+    <Parameter Name="manv" Type="int" Mode="In" />
+    <Parameter Name="maquyen" Type="int" Mode="In" />
+    <Parameter Name="ten" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="ngaysinh" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ThemThongTinNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maloai" Type="int" Mode="In" />
+    <Parameter Name="ten" Type="nvarchar" Mode="In" />
+    <Parameter Name="ngaysinh" Type="date" Mode="In" />
+    <Parameter Name="quequan" Type="nvarchar" Mode="In" />
+    <Parameter Name="cmnd" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ThemVeXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="machuyendi" Type="int" Mode="In" />
+    <Parameter Name="ten" Type="nvarchar" Mode="In" />
+    <Parameter Name="sdt" Type="int" Mode="In" />
+    <Parameter Name="vitri" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="XoaChuyenDi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="machuyendi" Type="int" Mode="In" />
+  </Function>
+  <Function Name="XoaTaiKhoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manhanvien" Type="int" Mode="In" />
+  </Function>
+  <Function Name="XoaThongTinNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="manv" Type="int" Mode="In" />
+  </Function>
+  <Function Name="XoaVeXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mave" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="OuBusModelStoreContainer">
+    <EntitySet Name="BaoCaoDoanhThuChuyenDi" EntityType="Self.BaoCaoDoanhThuChuyenDi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChuyenDi" EntityType="Self.ChuyenDi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanLoaiNhanVien" EntityType="Self.PhanLoaiNhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoanDangNhap" EntityType="Self.TaiKhoanDangNhap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VeXe" EntityType="Self.VeXe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XeKhach" EntityType="Self.XeKhach" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" Association="Self.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
+      <End Role="ChuyenDi" EntitySet="ChuyenDi" />
+      <End Role="BaoCaoDoanhThuChuyenDi" EntitySet="BaoCaoDoanhThuChuyenDi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChuyenDi_XeKhach" Association="Self.FK_ChuyenDi_XeKhach">
+      <End Role="XeKhach" EntitySet="XeKhach" />
+      <End Role="ChuyenDi" EntitySet="ChuyenDi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NhanVien_PhanLoaiNhanVien" Association="Self.FK_NhanVien_PhanLoaiNhanVien">
+      <End Role="PhanLoaiNhanVien" EntitySet="PhanLoaiNhanVien" />
+      <End Role="NhanVien" EntitySet="NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaiKhoanDangNhap_NhanVien" Association="Self.FK_TaiKhoanDangNhap_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaiKhoanDangNhap_PhanQuyen" Association="Self.FK_TaiKhoanDangNhap_PhanQuyen">
+      <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+      <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VeXe_ChuyenDi" Association="Self.FK_VeXe_ChuyenDi">
+      <End Role="ChuyenDi" EntitySet="ChuyenDi" />
+      <End Role="VeXe" EntitySet="VeXe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XeKhach_NhanVien" Association="Self.FK_XeKhach_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="XeKhach" EntitySet="XeKhach" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

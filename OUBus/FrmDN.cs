@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OUBus.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,16 @@ namespace OUBus
 {
     public partial class FormDN : Form
     {
+        TaiKhoan_BUS bDangKy;
         public FormDN()
         {
             InitializeComponent();
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-
+            bDangKy = new TaiKhoan_BUS();
         }
 
         private void FormDN_Load(object sender, EventArgs e)
         {
-            
+            bDangKy.LayDSQuyen(cbChon);
         }
 
         private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,31 +32,42 @@ namespace OUBus
 
         private void btnDN_Click(object sender, EventArgs e)
         {
-            if (cbChon.SelectedItem == "Nhân Viên")
-            {
-                FrmNhanVien nv = new FrmNhanVien();
-                nv.ShowDialog();
-                this.Close();
-            }
+            TaiKhoanDangNhap DangNhap = new TaiKhoanDangNhap();
+            if (txtDangNhap.Text == "")
+                MessageBox.Show("Chưa nhập tài khoản");
+            else if (txtMatKhau.Text == "")
+                MessageBox.Show("Chưa nhập tài khoản");
             else
             {
-                FrmQuanLy ql = new FrmQuanLy();
-                ql.ShowDialog();
-                this.Close();
+                DangNhap.TaiKhoan = txtDangNhap.Text;
+                DangNhap.MatKhau = txtMatKhau.Text;
+                DangNhap.MaQuyen = int.Parse(cbChon.SelectedValue.ToString());
+                if (bDangKy.KiemTraTaiKhoan(DangNhap) == 0)
+                    MessageBox.Show("Tài Khoản không tồn tại");
+                else if (bDangKy.KiemTraMatKhau(DangNhap) == 0)
+                    MessageBox.Show("Sai mật khẩu ");
+                else if (bDangKy.KiemTraMaQuyen(DangNhap) == 0)
+                    MessageBox.Show("Chọn sai quyền truy cập");
+                else
+                {
+                    if (DangNhap.MaQuyen == 1)
+                    {
+                        FrmNhanVien a = new FrmNhanVien();
+                        a.ShowDialog();
+                    }
+                    else if (DangNhap.MaQuyen == 2)
+                    {
+                        FrmQuanLy a = new FrmQuanLy();
+                        a.ShowDialog();
+                    }
+                }
             }
-        }
-
-        private void cbChon_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmDangKi dk = new FrmDangKi();
             dk.ShowDialog();
-            this.Close();
         }
     }
 }

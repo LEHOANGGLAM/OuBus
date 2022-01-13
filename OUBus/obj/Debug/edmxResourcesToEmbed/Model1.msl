@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OuBusModelStoreContainer" CdmEntityContainer="OuBusEntities1">
+    <EntitySetMapping Name="BaoCaoDoanhThuChuyenDis">
+      <EntityTypeMapping TypeName="OuBusModel.BaoCaoDoanhThuChuyenDi">
+        <MappingFragment StoreEntitySet="BaoCaoDoanhThuChuyenDi">
+          <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+          <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
+          <ScalarProperty Name="SoVe" ColumnName="SoVe" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChuyenDis">
+      <EntityTypeMapping TypeName="OuBusModel.ChuyenDi">
+        <MappingFragment StoreEntitySet="ChuyenDi">
+          <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+          <ScalarProperty Name="NgayKhoiHanh" ColumnName="NgayKhoiHanh" />
+          <ScalarProperty Name="ThoiGianKhoiHanh" ColumnName="ThoiGianKhoiHanh" />
+          <ScalarProperty Name="DiemKhoiHanh" ColumnName="DiemKhoiHanh" />
+          <ScalarProperty Name="DiemKetThuc" ColumnName="DiemKetThuc" />
+          <ScalarProperty Name="SoGheTrong" ColumnName="SoGheTrong" />
+          <ScalarProperty Name="SoGheDat" ColumnName="SoGheDat" />
+          <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="OuBusModel.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanLoaiNhanViens">
+      <EntityTypeMapping TypeName="OuBusModel.PhanLoaiNhanVien">
+        <MappingFragment StoreEntitySet="PhanLoaiNhanVien">
+          <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+          <ScalarProperty Name="TenLoaiNhanVien" ColumnName="TenLoaiNhanVien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanQuyens">
+      <EntityTypeMapping TypeName="OuBusModel.PhanQuyen">
+        <MappingFragment StoreEntitySet="PhanQuyen">
+          <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+          <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoanDangNhaps">
+      <EntityTypeMapping TypeName="OuBusModel.TaiKhoanDangNhap">
+        <MappingFragment StoreEntitySet="TaiKhoanDangNhap">
+          <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VeXes">
+      <EntityTypeMapping TypeName="OuBusModel.VeXe">
+        <MappingFragment StoreEntitySet="VeXe">
+          <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+          <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="VitriGhe" ColumnName="VitriGhe" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XeKhaches">
+      <EntityTypeMapping TypeName="OuBusModel.XeKhach">
+        <MappingFragment StoreEntitySet="XeKhach">
+          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="BienSoXe" ColumnName="BienSoXe" />
+          <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SuaThongTinChuyenDi" FunctionName="OuBusModel.Store.SuaThongTinChuyenDi" />
+    <FunctionImportMapping FunctionImportName="SuaThongTinNV" FunctionName="OuBusModel.Store.SuaThongTinNV" />
+    <FunctionImportMapping FunctionImportName="SuaThongTinVeXe" FunctionName="OuBusModel.Store.SuaThongTinVeXe" />
+    <FunctionImportMapping FunctionImportName="ThemChuyenDi" FunctionName="OuBusModel.Store.ThemChuyenDi" />
+    <FunctionImportMapping FunctionImportName="ThemTaiKhoan" FunctionName="OuBusModel.Store.ThemTaiKhoan" />
+    <FunctionImportMapping FunctionImportName="ThemThongTinNV" FunctionName="OuBusModel.Store.ThemThongTinNV" />
+    <FunctionImportMapping FunctionImportName="ThemVeXe" FunctionName="OuBusModel.Store.ThemVeXe" />
+    <FunctionImportMapping FunctionImportName="XoaChuyenDi" FunctionName="OuBusModel.Store.XoaChuyenDi" />
+    <FunctionImportMapping FunctionImportName="XoaTaiKhoan" FunctionName="OuBusModel.Store.XoaTaiKhoan" />
+    <FunctionImportMapping FunctionImportName="XoaThongTinNV" FunctionName="OuBusModel.Store.XoaThongTinNV" />
+    <FunctionImportMapping FunctionImportName="XoaVeXe" FunctionName="OuBusModel.Store.XoaVeXe" />
+  </EntityContainerMapping>
+</Mapping>
