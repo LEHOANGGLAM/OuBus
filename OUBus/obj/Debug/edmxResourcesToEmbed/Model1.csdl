@@ -34,11 +34,12 @@
     <Property Name="MaNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="MaLoaiNhanVien" Type="Int32" />
-    <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
     <Property Name="QueQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CMND" Type="Int32" />
+    <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PhanLoaiNhanVien" Relationship="Self.FK_NhanVien_PhanLoaiNhanVien" FromRole="NhanVien" ToRole="PhanLoaiNhanVien" />
     <NavigationProperty Name="TaiKhoanDangNhaps" Relationship="Self.FK_TaiKhoanDangNhap_NhanVien" FromRole="NhanVien" ToRole="TaiKhoanDangNhap" />
+    <NavigationProperty Name="VeXes" Relationship="Self.FK_VeXe_NhanVien" FromRole="NhanVien" ToRole="VeXe" />
     <NavigationProperty Name="XeKhaches" Relationship="Self.FK_XeKhach_NhanVien" FromRole="NhanVien" ToRole="XeKhach" />
   </EntityType>
   <EntityType Name="PhanLoaiNhanVien">
@@ -56,6 +57,16 @@
     <Property Name="MaQuyen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="TaiKhoanDangNhaps" Relationship="Self.FK_TaiKhoanDangNhap_PhanQuyen" FromRole="PhanQuyen" ToRole="TaiKhoanDangNhap" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="TaiKhoanDangNhap">
     <Key>
@@ -77,12 +88,14 @@
     </Key>
     <Property Name="MaVe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaChuyenDi" Type="Int32" />
+    <Property Name="MaNhanVien" Type="Int32" />
     <Property Name="TenKhachHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="SoDienThoai" Type="Int32" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="NgayDat" Type="DateTime" Precision="0" />
     <Property Name="VitriGhe" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="TinhTrang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChuyenDi" Relationship="Self.FK_VeXe_ChuyenDi" FromRole="VeXe" ToRole="ChuyenDi" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_VeXe_NhanVien" FromRole="VeXe" ToRole="NhanVien" />
   </EntityType>
   <EntityType Name="XeKhach">
     <Key>
@@ -155,6 +168,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_VeXe_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="VeXe" Type="Self.VeXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="VeXe">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_XeKhach_NhanVien">
     <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
     <End Role="XeKhach" Type="Self.XeKhach" Multiplicity="*" />
@@ -185,6 +210,7 @@
     <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
     <EntitySet Name="PhanLoaiNhanViens" EntityType="Self.PhanLoaiNhanVien" />
     <EntitySet Name="PhanQuyens" EntityType="Self.PhanQuyen" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TaiKhoanDangNhaps" EntityType="Self.TaiKhoanDangNhap" />
     <EntitySet Name="VeXes" EntityType="Self.VeXe" />
     <EntitySet Name="XeKhaches" EntityType="Self.XeKhach" />
@@ -208,6 +234,10 @@
       <End Role="NhanVien" EntitySet="NhanViens" />
       <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhaps" />
     </AssociationSet>
+    <AssociationSet Name="FK_VeXe_NhanVien" Association="Self.FK_VeXe_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="VeXe" EntitySet="VeXes" />
+    </AssociationSet>
     <AssociationSet Name="FK_XeKhach_NhanVien" Association="Self.FK_XeKhach_NhanVien">
       <End Role="NhanVien" EntitySet="NhanViens" />
       <End Role="XeKhach" EntitySet="XeKhaches" />
@@ -216,6 +246,36 @@
       <End Role="PhanQuyen" EntitySet="PhanQuyens" />
       <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhaps" />
     </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(OuBusModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(OuBusModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
     <FunctionImport Name="SuaThongTinChuyenDi">
       <Parameter Name="machuyendi" Mode="In" Type="Int32" />
       <Parameter Name="maxe" Mode="In" Type="Int32" />
@@ -223,7 +283,7 @@
       <Parameter Name="thoigian" Mode="In" Type="Time" />
       <Parameter Name="khoihanh" Mode="In" Type="String" />
       <Parameter Name="ketthuc" Mode="In" Type="String" />
-      <Parameter Name="giave" Mode="In" Type="Int32" />
+      <Parameter Name="giave" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="SuaThongTinNV">
       <Parameter Name="manv" Mode="In" Type="Int32" />
@@ -235,6 +295,7 @@
     </FunctionImport>
     <FunctionImport Name="SuaThongTinVeXe">
       <Parameter Name="mave" Mode="In" Type="Int32" />
+      <Parameter Name="manhanvien" Mode="In" Type="Int32" />
       <Parameter Name="machuyendi" Mode="In" Type="Int32" />
       <Parameter Name="ten" Mode="In" Type="String" />
       <Parameter Name="sdt" Mode="In" Type="Int32" />
@@ -247,7 +308,7 @@
       <Parameter Name="thoigian" Mode="In" Type="Time" />
       <Parameter Name="khoihanh" Mode="In" Type="String" />
       <Parameter Name="ketthuc" Mode="In" Type="String" />
-      <Parameter Name="giave" Mode="In" Type="Int32" />
+      <Parameter Name="giave" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="ThemTaiKhoan">
       <Parameter Name="taikhoan" Mode="In" Type="String" />
@@ -267,12 +328,13 @@
     </FunctionImport>
     <FunctionImport Name="ThemVeXe">
       <Parameter Name="machuyendi" Mode="In" Type="Int32" />
+      <Parameter Name="manhanvien" Mode="In" Type="Int32" />
       <Parameter Name="ten" Mode="In" Type="String" />
-      <Parameter Name="sdt" Mode="In" Type="Int32" />
+      <Parameter Name="sdt" Mode="In" Type="String" />
       <Parameter Name="vitri" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="XoaChuyenDi">
-      <Parameter Name="machuyendi" Mode="In" Type="Int32" />
+      <Parameter Name="MaChuyenDi" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="XoaTaiKhoan">
       <Parameter Name="manhanvien" Mode="In" Type="Int32" />
@@ -284,4 +346,15 @@
       <Parameter Name="mave" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
 </Schema>

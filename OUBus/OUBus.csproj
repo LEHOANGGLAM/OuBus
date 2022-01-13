@@ -60,10 +60,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="BUS\TaiKhoan_BUS.cs" />
+    <Compile Include="BUS\VeXe_BUS.cs" />
     <Compile Include="ChuyenDi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DAO\TaiKhoan_DAO.cs" />
+    <Compile Include="DAO\VeXe_DAO.cs" />
     <Compile Include="FrmDangKi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +151,15 @@
     </Compile>
     <Compile Include="FrmQLCD.Designer.cs">
       <DependentUpon>FrmQLCD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="TaiKhoanDangNhap.cs">
       <DependentUpon>Model1.tt</DependentUpon>

@@ -18,6 +18,7 @@ namespace OUBus
         public NhanVien()
         {
             this.TaiKhoanDangNhaps = new HashSet<TaiKhoanDangNhap>();
+            this.VeXes = new HashSet<VeXe>();
             this.XeKhaches = new HashSet<XeKhach>();
         }
     
@@ -26,11 +27,13 @@ namespace OUBus
         public Nullable<int> MaLoaiNhanVien { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
         public string QueQuan { get; set; }
-        public Nullable<int> CMND { get; set; }
+        public string CMND { get; set; }
     
         public virtual PhanLoaiNhanVien PhanLoaiNhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaiKhoanDangNhap> TaiKhoanDangNhaps { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VeXe> VeXes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<XeKhach> XeKhaches { get; set; }
     }

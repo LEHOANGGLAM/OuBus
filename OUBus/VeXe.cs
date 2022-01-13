@@ -16,12 +16,14 @@ namespace OUBus
     {
         public int MaVe { get; set; }
         public Nullable<int> MaChuyenDi { get; set; }
+        public Nullable<int> MaNhanVien { get; set; }
         public string TenKhachHang { get; set; }
-        public Nullable<int> SoDienThoai { get; set; }
+        public string SoDienThoai { get; set; }
         public Nullable<System.DateTime> NgayDat { get; set; }
         public string VitriGhe { get; set; }
         public string TinhTrang { get; set; }
     
         public virtual ChuyenDi ChuyenDi { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
     }
 }
