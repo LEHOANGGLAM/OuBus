@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OUBus.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace OUBus
 {
     public partial class FrmQLNV : Form
     {
+        NhanVien_BUS bNhanVien;
         public FrmQLNV()
         {
             InitializeComponent();
+            bNhanVien = new NhanVien_BUS();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -22,6 +25,115 @@ namespace OUBus
             FrmThemNV frmthem = new FrmThemNV();
             frmthem.ShowDialog();
             this.Close();
+        }
+        private void KichThuocGridView()
+        {
+            dataGridView1.Columns[0].Width = (int)(dataGridView1.Width * 0.1);
+            dataGridView1.Columns[1].Width = (int)(dataGridView1.Width * 0.2);
+            dataGridView1.Columns[2].Width = (int)(dataGridView1.Width * 0.15);
+            dataGridView1.Columns[3].Width = (int)(dataGridView1.Width * 0.2);
+            dataGridView1.Columns[4].Width = (int)(dataGridView1.Width * 0.2);
+            dataGridView1.Columns[5].Width = (int)(dataGridView1.Width * 0.2);
+        }
+        private void FrmQLNV_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            bNhanVien.LayDSNhanVien(dataGridView1);
+            KichThuocGridView();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            NhanVien findEmployee = new NhanVien();
+            if(textBox1.Text=="")
+            {
+                dataGridView1.DataSource = null;
+                bNhanVien.LayDSNhanVien(dataGridView1);
+                KichThuocGridView();
+            }
+            else if(textBox1.Text!="" && radioButton1.Checked)
+            {
+                int demKytu = 0;
+                foreach(char item in textBox1.Text)
+                {
+                    if (Char.IsLetter(item))
+                        demKytu++;
+                }
+                if (demKytu > 0)
+                {
+                    MessageBox.Show("Mã Nhân Viên phải là 1 số");
+                    textBox1.Text = "";
+                }
+                else
+                {
+                    findEmployee.MaNhanVien = int.Parse(textBox1.Text);
+                    dataGridView1.DataSource = null;
+                    bNhanVien.FindByEmployeeID(dataGridView1, findEmployee);
+                    KichThuocGridView();
+                }
+            }
+            else if (textBox1.Text != "" && radioButton2.Checked)
+            {
+                int demKytu = 0;
+                foreach (char item in textBox1.Text)
+                {
+                    if (Char.IsLetter(item))
+                        demKytu++;
+                }
+                if (demKytu > 0)
+                {
+                    MessageBox.Show("Mã Loại Nhân Viên phải là 1 số");
+                    textBox1.Text = "";
+                }
+                else
+                {
+                    findEmployee.MaLoaiNhanVien = int.Parse(textBox1.Text);
+                    dataGridView1.DataSource = null;
+                    bNhanVien.FindByTypeOfEmployeeID(dataGridView1, findEmployee);
+                    KichThuocGridView();
+                }
+            }
+            else if (textBox1.Text != "" && radioButton3.Checked)
+            {
+                int demKyso = 0;
+                foreach (char item in textBox1.Text)
+                {
+                    if (Char.IsDigit(item))
+                        demKyso++;
+                }
+                if (demKyso > 0)
+                {
+                    MessageBox.Show("Không đc nhập số");
+                    textBox1.Text = "";
+                }
+                else
+                {
+                    findEmployee.TenNhanVien = textBox1.Text;
+                    dataGridView1.DataSource = null;
+                    bNhanVien.FindByEployeeName(dataGridView1, findEmployee);
+                    KichThuocGridView();
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NhanVien nv = new NhanVien();
+            nv.MaNhanVien = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            if (nv.MaNhanVien == null)
+                MessageBox.Show("Chưa chọn nhân viên để xóa");
+            else
+            {
+                if (bNhanVien.delEmployee(nv) == 1)
+                {
+                    MessageBox.Show("Xóa Thành Công");
+                    dataGridView1.DataSource = null;
+                    bNhanVien.LayDSNhanVien(dataGridView1);
+                    KichThuocGridView();
+                }
+                else
+                    MessageBox.Show("Xóa Thất Bại");
+            }
         }
     }
 }
