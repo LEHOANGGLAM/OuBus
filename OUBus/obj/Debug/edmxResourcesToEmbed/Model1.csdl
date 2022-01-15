@@ -94,8 +94,6 @@
     <Property Name="NgayDat" Type="DateTime" Precision="0" />
     <Property Name="VitriGhe" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <Property Name="TinhTrang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ChuyenDi" Relationship="Self.FK_VeXe_ChuyenDi" FromRole="VeXe" ToRole="ChuyenDi" />
-    <NavigationProperty Name="NhanVien" Relationship="Self.FK_VeXe_NhanVien" FromRole="VeXe" ToRole="NhanVien" />
   </EntityType>
   <EntityType Name="XeKhach">
     <Key>

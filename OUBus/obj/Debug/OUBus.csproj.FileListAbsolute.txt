@@ -1,105 +1,24 @@
-C:\Users\Admin\source\repos\OUBus\OUBus\bin\Debug\OUBus.exe.config
-C:\Users\Admin\source\repos\OUBus\OUBus\bin\Debug\OUBus.exe
-C:\Users\Admin\source\repos\OUBus\OUBus\bin\Debug\OUBus.pdb
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.csproj.AssemblyReference.cache
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.Properties.Resources.resources
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.csproj.GenerateResource.cache
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.csproj.CoreCompileInputs.cache
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.exe
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.pdb
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FormDN.resources
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FrmQLCD.resources
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FrmQuanLy.resources
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FrmNhanVien.resources
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FrmQLBV.resources
-C:\Users\Admin\source\repos\OUBus\OUBus\obj\Debug\OUBus.FrmDSVX.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\bin\Debug\OUBus.exe.config
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\bin\Debug\OUBus.exe
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\bin\Debug\OUBus.pdb
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.csproj.AssemblyReference.cache
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmDSVX.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmQLBV.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FormDN.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmNhanVien.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmQuanLy.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.Properties.Resources.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmQLCD.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.csproj.GenerateResource.cache
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.exe
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.pdb
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmDangKi.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmTKDT.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmQLNV.resources
-C:\Users\Admin\Documents\Lap trinh csdl\OuBus\OUBus\obj\Debug\OUBus.FrmThemNV.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\bin\Debug\OUBus.exe.config
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.exe
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.pdb
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.csprojResolveAssemblyReference.cache
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FrmDangKi.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FrmDSVX.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FrmQLBV.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FormDN.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FrmNhanVien.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FrmQLNV.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FrmQuanLy.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FrmThemNV.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FrmTKDT.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.Properties.Resources.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.FrmQLCD.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\obj\Debug\OUBus.csproj.GenerateResource.Cache
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\bin\Debug\OUBus.exe
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\bin\Debug\OUBus.pdb
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\bin\Debug\EntityFramework.dll
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\bin\Debug\EntityFramework.xml
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus\OUBus\bin\Debug\EntityFramework.SqlServer.xml
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\bin\Debug\OUBus.exe.config
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\bin\Debug\OUBus.exe
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\bin\Debug\OUBus.pdb
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\bin\Debug\EntityFramework.dll
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\bin\Debug\EntityFramework.SqlServer.dll
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\bin\Debug\EntityFramework.xml
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\bin\Debug\EntityFramework.SqlServer.xml
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.csprojAssemblyReference.cache
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FrmDangKi.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FrmDSVX.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FrmQLBV.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FormDN.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FrmNhanVien.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FrmQLNV.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FrmQuanLy.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FrmThemNV.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FrmTKDT.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.Properties.Resources.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.FrmQLCD.resources
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.csproj.GenerateResource.cache
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.csproj.CoreCompileInputs.cache
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.csproj.CopyComplete
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.exe
-C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.pdb
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\bin\Debug\OUBus.exe.config
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.exe
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.pdb
-<<<<<<< HEAD
-=======
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\bin\Debug\OUBus.exe
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\bin\Debug\OUBus.pdb
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\bin\Debug\EntityFramework.dll
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\bin\Debug\EntityFramework.xml
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.csprojResolveAssemblyReference.cache
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FrmDangKi.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FrmDSVX.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FrmQLBV.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FormDN.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FrmNhanVien.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FrmQLNV.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FrmQuanLy.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FrmThemNV.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FrmTKDT.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.Properties.Resources.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.FrmQLCD.resources
-C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.csproj.GenerateResource.Cache
->>>>>>> NgocThien
+C:\MyFolder\OuBus\OUBus\bin\Debug\OUBus.exe.config
+C:\MyFolder\OuBus\OUBus\bin\Debug\OUBus.exe
+C:\MyFolder\OuBus\OUBus\bin\Debug\OUBus.pdb
+C:\MyFolder\OuBus\OUBus\bin\Debug\EntityFramework.dll
+C:\MyFolder\OuBus\OUBus\bin\Debug\EntityFramework.SqlServer.dll
+C:\MyFolder\OuBus\OUBus\bin\Debug\EntityFramework.xml
+C:\MyFolder\OuBus\OUBus\bin\Debug\EntityFramework.SqlServer.xml
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FrmDangKi.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FrmDSVX.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FrmQLBV.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FormDN.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FrmNhanVien.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FrmQLNV.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FrmQuanLy.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FrmThemNV.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FrmTKDT.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.Properties.Resources.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.FrmQLCD.resources
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.csproj.GenerateResource.cache
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.csproj.CoreCompileInputs.cache
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.csproj.CopyComplete
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.exe
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.pdb
+C:\MyFolder\OuBus\OUBus\obj\Debug\OUBus.Ghe.resources
