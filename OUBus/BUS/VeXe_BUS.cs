@@ -28,6 +28,12 @@ namespace OUBus.BUS
             return listVX;
         }
 
+        public dynamic GetListChuyenDiByKW(string kw)
+        {
+            dynamic listVX = veXe_DAO.GetListChuyenDiByKW(kw);
+            return listVX;
+        }
+
         public ChuyenDi GetChuyenDiByMCD(int MCH)
         {
             ChuyenDi cd = chuyenDi_DAO.FindChuyenDiByMaChuyenDi(MCH);
@@ -111,7 +117,22 @@ namespace OUBus.BUS
                 MessageBox.Show("Xóa thất bại: \n" + ex.Message);
             }
         }
-
+        //TIMKIEM
+        public dynamic GetListVeXeByTen(string kw)
+        {
+            dynamic listVX = veXe_DAO.GetListVeXeByTen(kw);
+            return listVX;
+        }
+        public dynamic GetListVeXeBySDT(string kw)
+        {
+            dynamic listVX = veXe_DAO.GetListVeXeBySDT(kw);
+            return listVX;
+        }
+        public dynamic GetListVeXeByMCD(string kw)
+        {
+            dynamic listVX = veXe_DAO.GetListVeXeByMCD(kw);
+            return listVX;
+        }
 
     }
 }

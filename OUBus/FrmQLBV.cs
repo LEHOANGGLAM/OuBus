@@ -14,7 +14,7 @@ namespace OUBus
     public partial class FrmQLBV : Form
     {
         VeXe_BUS veXe_BUS;
-        int MaNv = 6;
+        public int MaNv;
         ChuyenDi cd;
         XeKhach xk;
         List<VeXe> listVX;
@@ -67,6 +67,11 @@ namespace OUBus
 
         private void btnDatve_Click(object sender, EventArgs e)
         {
+            if (txtSDT.TextLength != 10)
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ: SĐT phải đủ 10 số");
+                return;
+            }
             string[] vitrigheArray = this.txtViTriGhe.Text.Split(',');
             try
             {
@@ -76,7 +81,7 @@ namespace OUBus
                     VeXe vx = new VeXe();
                     vx.MaChuyenDi = int.Parse(txtMaChuyenDi.Text);
                     vx.TenKhachHang = txtTen.Text;
-                    vx.VitriGhe = vitrigheArray[i];
+                    vx.VitriGhe = vitrigheArray[i].Trim();
                     vx.SoDienThoai = txtSDT.Text;
                     vx.MaNhanVien = MaNv;
                     vx.NgayDat = DateTime.Now;
@@ -95,6 +100,11 @@ namespace OUBus
 
         private void btnBanve_Click(object sender, EventArgs e)
         {
+            if(txtSDT.TextLength != 10)
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ: SĐT phải đủ 10 số");
+                return;
+            }
             string[] vitrigheArray = this.txtViTriGhe.Text.Split(',');
             try
             {
@@ -103,7 +113,7 @@ namespace OUBus
                     VeXe vx = new VeXe();
                     vx.MaChuyenDi = int.Parse(txtMaChuyenDi.Text);
                     vx.TenKhachHang = txtTen.Text;
-                    vx.VitriGhe = vitrigheArray[i];
+                    vx.VitriGhe = vitrigheArray[i].Trim();
                     vx.SoDienThoai = txtSDT.Text;
                     vx.MaNhanVien = MaNv;
                     vx.NgayDat = DateTime.Now;
@@ -139,7 +149,7 @@ namespace OUBus
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-
+            DGVChuyenDi.DataSource = veXe_BUS.GetListChuyenDiByKW(this.txtTimKiem.Text);
         }
 
         private void c1_CheckedChanged(object sender, EventArgs e)

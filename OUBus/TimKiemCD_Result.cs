@@ -10,21 +10,9 @@
 namespace OUBus
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ChuyenDi
+    public partial class TimKiemCD_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ChuyenDi()
-        {
-            this.VeXes = new HashSet<VeXe>();
-        }
-
-        public static explicit operator ChuyenDi(List<TimKiemCD_Result> v)
-        {
-            throw new NotImplementedException();
-        }
-
         public int MaChuyenDi { get; set; }
         public Nullable<int> MaXe { get; set; }
         public Nullable<System.DateTime> NgayKhoiHanh { get; set; }
@@ -34,10 +22,5 @@ namespace OUBus
         public Nullable<int> SoGheTrong { get; set; }
         public Nullable<int> SoGheDat { get; set; }
         public Nullable<int> GiaVe { get; set; }
-    
-        public virtual BaoCaoDoanhThuChuyenDi BaoCaoDoanhThuChuyenDi { get; set; }
-        public virtual XeKhach XeKhach { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VeXe> VeXes { get; set; }
     }
 }

@@ -28,6 +28,7 @@ namespace OUBus
         {
             FrmQLBV frmqlbv = new FrmQLBV();
             frmqlbv.MdiParent = this;
+            frmqlbv.MaNv = 5;
             frmqlbv.Show();
         }
     }

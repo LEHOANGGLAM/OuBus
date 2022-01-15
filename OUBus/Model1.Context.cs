@@ -279,5 +279,68 @@ namespace OUBus
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("XoaVeXe", maveParameter);
         }
+    
+        public virtual ObjectResult<TimKiemCD_Result> TimKiemCD(string nhap)
+        {
+            var nhapParameter = nhap != null ?
+                new ObjectParameter("nhap", nhap) :
+                new ObjectParameter("nhap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TimKiemCD_Result>("TimKiemCD", nhapParameter);
+        }
+    
+        public virtual ObjectResult<TimKiemNVtheoMaLoaiNV_Result> TimKiemNVtheoMaLoaiNV(Nullable<int> nhap)
+        {
+            var nhapParameter = nhap.HasValue ?
+                new ObjectParameter("nhap", nhap) :
+                new ObjectParameter("nhap", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TimKiemNVtheoMaLoaiNV_Result>("TimKiemNVtheoMaLoaiNV", nhapParameter);
+        }
+    
+        public virtual ObjectResult<TimKiemNVtheoMaNV_Result> TimKiemNVtheoMaNV(Nullable<int> nhap)
+        {
+            var nhapParameter = nhap.HasValue ?
+                new ObjectParameter("nhap", nhap) :
+                new ObjectParameter("nhap", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TimKiemNVtheoMaNV_Result>("TimKiemNVtheoMaNV", nhapParameter);
+        }
+    
+        public virtual ObjectResult<TimKiemNVtheoTenNV_Result> TimKiemNVtheoTenNV(string nhap)
+        {
+            var nhapParameter = nhap != null ?
+                new ObjectParameter("nhap", nhap) :
+                new ObjectParameter("nhap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TimKiemNVtheoTenNV_Result>("TimKiemNVtheoTenNV", nhapParameter);
+        }
+    
+        public virtual ObjectResult<TimKiemVeXetheoMaCD_Result> TimKiemVeXetheoMaCD(string nhap)
+        {
+            var nhapParameter = nhap != null ?
+                new ObjectParameter("nhap", nhap) :
+                new ObjectParameter("nhap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TimKiemVeXetheoMaCD_Result>("TimKiemVeXetheoMaCD", nhapParameter);
+        }
+    
+        public virtual ObjectResult<TimKiemVeXetheoSDT_Result> TimKiemVeXetheoSDT(string nhap)
+        {
+            var nhapParameter = nhap != null ?
+                new ObjectParameter("nhap", nhap) :
+                new ObjectParameter("nhap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TimKiemVeXetheoSDT_Result>("TimKiemVeXetheoSDT", nhapParameter);
+        }
+    
+        public virtual ObjectResult<TimKiemVeXetheoTenKH_Result> TimKiemVeXetheoTenKH(string nhap)
+        {
+            var nhapParameter = nhap != null ?
+                new ObjectParameter("nhap", nhap) :
+                new ObjectParameter("nhap", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TimKiemVeXetheoTenKH_Result>("TimKiemVeXetheoTenKH", nhapParameter);
+        }
     }
 }

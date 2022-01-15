@@ -20,5 +20,7 @@ namespace OUBus.DAO
             ChuyenDi cd = db.ChuyenDis.FirstOrDefault(s => s.MaChuyenDi == maChuyenDi);
             return cd;
         }
+
+
     }
 }

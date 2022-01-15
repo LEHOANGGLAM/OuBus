@@ -113,5 +113,98 @@
     <FunctionImportMapping FunctionImportName="XoaTaiKhoan" FunctionName="OuBusModel.Store.XoaTaiKhoan" />
     <FunctionImportMapping FunctionImportName="XoaThongTinNV" FunctionName="OuBusModel.Store.XoaThongTinNV" />
     <FunctionImportMapping FunctionImportName="XoaVeXe" FunctionName="OuBusModel.Store.XoaVeXe" />
+    <FunctionImportMapping FunctionImportName="TimKiemCD" FunctionName="OuBusModel.Store.TimKiemCD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OuBusModel.TimKiemCD_Result">
+          <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+          <ScalarProperty Name="NgayKhoiHanh" ColumnName="NgayKhoiHanh" />
+          <ScalarProperty Name="ThoiGianKhoiHanh" ColumnName="ThoiGianKhoiHanh" />
+          <ScalarProperty Name="DiemKhoiHanh" ColumnName="DiemKhoiHanh" />
+          <ScalarProperty Name="DiemKetThuc" ColumnName="DiemKetThuc" />
+          <ScalarProperty Name="SoGheTrong" ColumnName="SoGheTrong" />
+          <ScalarProperty Name="SoGheDat" ColumnName="SoGheDat" />
+          <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemNVtheoMaLoaiNV" FunctionName="OuBusModel.Store.TimKiemNVtheoMaLoaiNV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OuBusModel.TimKiemNVtheoMaLoaiNV_Result">
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemNVtheoMaNV" FunctionName="OuBusModel.Store.TimKiemNVtheoMaNV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OuBusModel.TimKiemNVtheoMaNV_Result">
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemNVtheoTenNV" FunctionName="OuBusModel.Store.TimKiemNVtheoTenNV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OuBusModel.TimKiemNVtheoTenNV_Result">
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+          <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemVeXetheoMaCD" FunctionName="OuBusModel.Store.TimKiemVeXetheoMaCD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OuBusModel.TimKiemVeXetheoMaCD_Result">
+          <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+          <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="VitriGhe" ColumnName="VitriGhe" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemVeXetheoSDT" FunctionName="OuBusModel.Store.TimKiemVeXetheoSDT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OuBusModel.TimKiemVeXetheoSDT_Result">
+          <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+          <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="VitriGhe" ColumnName="VitriGhe" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TimKiemVeXetheoTenKH" FunctionName="OuBusModel.Store.TimKiemVeXetheoTenKH">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OuBusModel.TimKiemVeXetheoTenKH_Result">
+          <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+          <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+          <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="VitriGhe" ColumnName="VitriGhe" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

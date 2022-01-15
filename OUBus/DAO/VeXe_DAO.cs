@@ -27,6 +27,18 @@ namespace OUBus.DAO
             return listVX;
         }
 
+        public dynamic GetListChuyenDiByKW(string kw)
+        {
+            var cd = db.TimKiemCD(kw).Select(s => new {
+                s.MaChuyenDi,
+                s.DiemKhoiHanh,
+                s.DiemKetThuc,
+                s.NgayKhoiHanh,
+                s.ThoiGianKhoiHanh
+            }).ToList();
+            return cd;
+        }
+
         //DS Vé Xe
         public List<VeXe> GetListVeXe()
         {
@@ -82,7 +94,21 @@ namespace OUBus.DAO
             db.SaveChanges();
         }
 
-
-
+        //TIMKIEM
+        public dynamic GetListVeXeByTen(string kw)
+        {
+            var cd = db.TimKiemVeXetheoTenKH(kw).ToList();
+            return cd;
+        }
+        public dynamic GetListVeXeBySDT(string kw)
+        {
+            var cd = db.TimKiemVeXetheoSDT(kw).ToList();
+            return cd;
+        }
+        public dynamic GetListVeXeByMCD(string kw)
+        {
+            var cd = db.TimKiemVeXetheoMaCD(kw).ToList();
+            return cd;
+        }
     }
 }

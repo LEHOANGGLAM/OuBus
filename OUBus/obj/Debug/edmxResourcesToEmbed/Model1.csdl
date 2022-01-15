@@ -259,7 +259,7 @@
       <Parameter Name="ten" Mode="In" Type="String" />
       <Parameter Name="ngaysinh" Mode="In" Type="DateTime" />
       <Parameter Name="quequan" Mode="In" Type="String" />
-      <Parameter Name="cmnd" Mode="In" Type="String" />
+      <Parameter Name="cmnd" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="SuaThongTinVeXe">
       <Parameter Name="mave" Mode="In" Type="Int32" />
@@ -292,7 +292,7 @@
       <Parameter Name="ten" Mode="In" Type="String" />
       <Parameter Name="ngaysinh" Mode="In" Type="DateTime" />
       <Parameter Name="quequan" Mode="In" Type="String" />
-      <Parameter Name="cmnd" Mode="In" Type="String" />
+      <Parameter Name="cmnd" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="ThemVeXe">
       <Parameter Name="machuyendi" Mode="In" Type="Int32" />
@@ -313,5 +313,91 @@
     <FunctionImport Name="XoaVeXe">
       <Parameter Name="mave" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="TimKiemCD" ReturnType="Collection(OuBusModel.TimKiemCD_Result)">
+      <Parameter Name="nhap" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemNVtheoMaLoaiNV" ReturnType="Collection(OuBusModel.TimKiemNVtheoMaLoaiNV_Result)">
+      <Parameter Name="nhap" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemNVtheoMaNV" ReturnType="Collection(OuBusModel.TimKiemNVtheoMaNV_Result)">
+      <Parameter Name="nhap" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemNVtheoTenNV" ReturnType="Collection(OuBusModel.TimKiemNVtheoTenNV_Result)">
+      <Parameter Name="nhap" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemVeXetheoMaCD" ReturnType="Collection(OuBusModel.TimKiemVeXetheoMaCD_Result)">
+      <Parameter Name="nhap" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemVeXetheoSDT" ReturnType="Collection(OuBusModel.TimKiemVeXetheoSDT_Result)">
+      <Parameter Name="nhap" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TimKiemVeXetheoTenKH" ReturnType="Collection(OuBusModel.TimKiemVeXetheoTenKH_Result)">
+      <Parameter Name="nhap" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="TimKiemCD_Result">
+    <Property Type="Int32" Name="MaChuyenDi" Nullable="false" />
+    <Property Type="Int32" Name="MaXe" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKhoiHanh" Nullable="true" />
+    <Property Type="Time" Name="ThoiGianKhoiHanh" Nullable="true" />
+    <Property Type="String" Name="DiemKhoiHanh" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DiemKetThuc" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SoGheTrong" Nullable="true" />
+    <Property Type="Int32" Name="SoGheDat" Nullable="true" />
+    <Property Type="Int32" Name="GiaVe" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TimKiemNVtheoMaLoaiNV_Result">
+    <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+    <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MaLoaiNhanVien" Nullable="true" />
+    <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+    <Property Type="String" Name="QueQuan" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CMND" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="TimKiemNVtheoMaNV_Result">
+    <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+    <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MaLoaiNhanVien" Nullable="true" />
+    <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+    <Property Type="String" Name="QueQuan" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CMND" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="TimKiemNVtheoTenNV_Result">
+    <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+    <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MaLoaiNhanVien" Nullable="true" />
+    <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+    <Property Type="String" Name="QueQuan" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CMND" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="TimKiemVeXetheoMaCD_Result">
+    <Property Type="Int32" Name="MaVe" Nullable="false" />
+    <Property Type="Int32" Name="MaChuyenDi" Nullable="true" />
+    <Property Type="Int32" Name="MaNhanVien" Nullable="true" />
+    <Property Type="String" Name="TenKhachHang" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="NgayDat" Nullable="true" />
+    <Property Type="String" Name="VitriGhe" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="TinhTrang" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="TimKiemVeXetheoSDT_Result">
+    <Property Type="Int32" Name="MaVe" Nullable="false" />
+    <Property Type="Int32" Name="MaChuyenDi" Nullable="true" />
+    <Property Type="Int32" Name="MaNhanVien" Nullable="true" />
+    <Property Type="String" Name="TenKhachHang" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="NgayDat" Nullable="true" />
+    <Property Type="String" Name="VitriGhe" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="TinhTrang" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="TimKiemVeXetheoTenKH_Result">
+    <Property Type="Int32" Name="MaVe" Nullable="false" />
+    <Property Type="Int32" Name="MaChuyenDi" Nullable="true" />
+    <Property Type="Int32" Name="MaNhanVien" Nullable="true" />
+    <Property Type="String" Name="TenKhachHang" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="NgayDat" Nullable="true" />
+    <Property Type="String" Name="VitriGhe" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="TinhTrang" Nullable="true" MaxLength="10" />
+  </ComplexType>
 </Schema>

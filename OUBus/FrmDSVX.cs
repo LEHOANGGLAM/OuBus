@@ -16,6 +16,7 @@ namespace OUBus
         VeXe_BUS veXe_BUS;
         int MaVe = -1;
         public String viTriGhe;
+        List<VeXe> listVX;
         public FrmDSVX()
         {
             InitializeComponent();
@@ -30,6 +31,10 @@ namespace OUBus
             cbMaChuyenDi.DataSource = veXe_BUS.GetListMaChuyenDi();
             cbMaChuyenDi.DisplayMember = "MaChuyenDi";
             cbMaChuyenDi.ValueMember = "MaChuyenDi";
+
+            btnBan.Enabled = false;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void DGVVeXe_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -43,6 +48,12 @@ namespace OUBus
 
                 MaVe = int.Parse(DGVVeXe.Rows[e.RowIndex].Cells["MaVe"].Value == null ? null : DGVVeXe.Rows[e.RowIndex].Cells["MaVe"].Value.ToString());
                 this.txtViTriGhe.Text = viTriGhe;
+
+                btnBan.Enabled = true;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+                 listVX = new List<VeXe>();
+                listVX.AddRange(veXe_BUS.GetListVeXeByMCD(int.Parse(cbMaChuyenDi.Text)));
             }
             catch (Exception ex)
             {
@@ -52,8 +63,22 @@ namespace OUBus
 
         private void btnBan_Click(object sender, EventArgs e)
         {
+            if (txtSDT.TextLength != 10)
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ: SĐT phải đủ 10 số");
+                return;
+            }
             try
             {
+                List<VeXe> listVX = new List<VeXe>();
+                listVX.AddRange(veXe_BUS.GetListVeXeByMCD(int.Parse(cbMaChuyenDi.Text)));
+                foreach(VeXe ve in listVX)
+                    if(ve.VitriGhe.Trim() == txtViTriGhe.Text && ve.MaChuyenDi != int.Parse(cbMaChuyenDi.Text))
+                    {
+                        MessageBox.Show("Chỗ ngồi đã tồn tại");
+                        return;
+                    }
+           
                 VeXe vx = veXe_BUS.GetVeXeByMaVe(MaVe);
                 vx.TinhTrang = "Bán";
 
@@ -69,8 +94,21 @@ namespace OUBus
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (txtSDT.TextLength != 10)
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ: SĐT phải đủ 10 số");
+                return;
+            }
             try
             {
+                
+                foreach (VeXe ve in listVX)
+                    if (ve.VitriGhe.Trim() == txtViTriGhe.Text && ve.MaChuyenDi != int.Parse(cbMaChuyenDi.Text))
+                    {
+                        MessageBox.Show("Chỗ ngồi đã tồn tại");
+                        return;
+                    }
+
                 VeXe vx = veXe_BUS.GetVeXeByMaVe(MaVe);
                 vx.MaChuyenDi = int.Parse(cbMaChuyenDi.SelectedValue.ToString());
                 vx.TenKhachHang = txtTenKhachHang.Text;
@@ -86,7 +124,7 @@ namespace OUBus
                 MessageBox.Show(ex.Message);
             }
         }
-        private void btn_Xoa_Click(object sender, EventArgs e)
+        private void btnXoa_Click(object sender, EventArgs e)
         {
             try
             {
@@ -119,52 +157,44 @@ namespace OUBus
             this.txtViTriGhe.Text = viTriGhe;
         }
 
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
-        {
-            if (rdSDT.Checked)
-            {
-                //DGVVeXe.DataSource = veXe_BUS.Get
-            }
-            else if (rbTen.Checked)
-            {
-
-            }
-            else
-            {
-
-            }
-
-        }
-
-        private void rbTen_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbCD_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rdSDT_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //private void btChon_Click(object sender, EventArgs e)
-        //{
-        //    Ghe f = new Ghe();
-        //    f.MaCD = int.Parse(cbMaChuyenDi.Text);
-        //    f.FrmDSVX = this;
-        //    f.ShowDialog();
-        //}
-
+    
         private void btChon_Click_1(object sender, EventArgs e)
         {
             Ghe f = new Ghe();
             f.MaCD = int.Parse(cbMaChuyenDi.Text);
             f.FrmDSVX = this;
             f.ShowDialog();
+        }
+
+        private void txtTimKiem_TextChanged_1(object sender, EventArgs e)
+        {
+            if (rdSDT.Checked)
+            {
+                DGVVeXe.DataSource = veXe_BUS.GetListVeXeBySDT(this.txtTimKiem.Text);
+            }
+            else if (rbTen.Checked)
+            {
+                DGVVeXe.DataSource = veXe_BUS.GetListVeXeByTen(this.txtTimKiem.Text);
+            }
+            else
+            {
+                DGVVeXe.DataSource = veXe_BUS.GetListVeXeByMCD(this.txtTimKiem.Text);
+            }
+        }
+
+        private void rbCD_CheckedChanged_1(object sender, EventArgs e)
+        {
+            DGVVeXe.DataSource = veXe_BUS.GetListVeXeByMCD(this.txtTimKiem.Text);
+        }
+
+        private void rbTen_CheckedChanged(object sender, EventArgs e)
+        {
+            DGVVeXe.DataSource = veXe_BUS.GetListVeXeByTen(this.txtTimKiem.Text);
+        }
+
+        private void rdSDT_CheckedChanged_1(object sender, EventArgs e)
+        {
+            DGVVeXe.DataSource = veXe_BUS.GetListVeXeBySDT(this.txtTimKiem.Text);
         }
     }
 }

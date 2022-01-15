@@ -203,7 +203,7 @@
     <Parameter Name="ten" Type="nvarchar" Mode="In" />
     <Parameter Name="ngaysinh" Type="date" Mode="In" />
     <Parameter Name="quequan" Type="nvarchar" Mode="In" />
-    <Parameter Name="cmnd" Type="nvarchar" Mode="In" />
+    <Parameter Name="cmnd" Type="int" Mode="In" />
   </Function>
   <Function Name="SuaThongTinVeXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="mave" Type="int" Mode="In" />
@@ -236,7 +236,7 @@
     <Parameter Name="ten" Type="nvarchar" Mode="In" />
     <Parameter Name="ngaysinh" Type="date" Mode="In" />
     <Parameter Name="quequan" Type="nvarchar" Mode="In" />
-    <Parameter Name="cmnd" Type="nvarchar" Mode="In" />
+    <Parameter Name="cmnd" Type="int" Mode="In" />
   </Function>
   <Function Name="ThemVeXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="machuyendi" Type="int" Mode="In" />
@@ -244,6 +244,27 @@
     <Parameter Name="ten" Type="nvarchar" Mode="In" />
     <Parameter Name="sdt" Type="nvarchar" Mode="In" />
     <Parameter Name="vitri" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="TimKiemCD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TimKiemNVtheoMaLoaiNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nhap" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TimKiemNVtheoMaNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nhap" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TimKiemNVtheoTenNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TimKiemVeXetheoMaCD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TimKiemVeXetheoSDT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TimKiemVeXetheoTenKH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nhap" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="XoaChuyenDi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaChuyenDi" Type="int" Mode="In" />

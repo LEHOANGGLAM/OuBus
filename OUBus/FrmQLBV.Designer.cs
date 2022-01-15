@@ -29,7 +29,6 @@ namespace OUBus
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQLBV));
             this.label1 = new System.Windows.Forms.Label();
             this.DGVChuyenDi = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -788,10 +787,10 @@ namespace OUBus
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DGVChuyenDi);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmQLBV";
             this.Text = "Quản lý bán vé";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmQLBV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVChuyenDi)).EndInit();
             this.viTriNgoi.ResumeLayout(false);
