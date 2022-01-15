@@ -19,12 +19,14 @@ namespace OUBus
             InitializeComponent();
             bNhanVien = new NhanVien_BUS();
         }
-
+        public FrmQLNV(DataGridView dt)
+        {
+            dataGridView1 = dt;
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             FrmThemNV frmthem = new FrmThemNV();
             frmthem.ShowDialog();
-            this.Close();
         }
         private void KichThuocGridView()
         {
@@ -35,7 +37,7 @@ namespace OUBus
             dataGridView1.Columns[4].Width = (int)(dataGridView1.Width * 0.2);
             dataGridView1.Columns[5].Width = (int)(dataGridView1.Width * 0.2);
         }
-        private void FrmQLNV_Load(object sender, EventArgs e)
+        public void FrmQLNV_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
             bNhanVien.LayDSNhanVien(dataGridView1);
@@ -124,16 +126,31 @@ namespace OUBus
                 MessageBox.Show("Chưa chọn nhân viên để xóa");
             else
             {
-                if (bNhanVien.delEmployee(nv) == 1)
+                if (bNhanVien.delEmployee(nv) == -1)
+                    MessageBox.Show("EmployeeID isn't exists in database");
+                else if (bNhanVien.delEmployee(nv) == 1)
                 {
                     MessageBox.Show("Xóa Thành Công");
                     dataGridView1.DataSource = null;
                     bNhanVien.LayDSNhanVien(dataGridView1);
                     KichThuocGridView();
                 }
-                else
+                else if(bNhanVien.delEmployee(nv)==0)
                     MessageBox.Show("Xóa Thất Bại");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmThemNV frmthem = new FrmThemNV();
+            frmthem.EmployeeID = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            frmthem.EmployeeName = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            frmthem.EmployeeTypeCode = int.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+            frmthem.DateOfBirth = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+            frmthem.Hometown = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            frmthem.CMND = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            frmthem.dt = dataGridView1;
+            frmthem.ShowDialog();
         }
     }
 }

@@ -38,5 +38,34 @@ namespace OUBus.DAO
             db.XoaThongTinNV(nv.MaNhanVien);
             db.SaveChanges();
         }
+        public int KiemTraMaNV(NhanVien nv)
+        {
+            int kq = 0;
+            var ds = db.NhanViens.Select(s => s).ToList();
+            foreach(var item in ds)
+            {
+                if (item.MaNhanVien == nv.MaNhanVien)
+                {
+                    kq = 1;
+                    break;
+                }
+            }
+            return kq;
+        }
+        public void InsertNewEmployee(NhanVien nv)
+        {
+            db.ThemThongTinNV(nv.MaLoaiNhanVien, nv.TenNhanVien, nv.NgaySinh, nv.QueQuan, nv.CMND);
+            db.SaveChanges();
+        }
+        public void UpdateEmployee(NhanVien nv)
+        {
+            db.SuaThongTinNV(nv.MaNhanVien, nv.MaLoaiNhanVien, nv.TenNhanVien, nv.NgaySinh, nv.QueQuan, nv.CMND);
+            db.SaveChanges();
+        }
+        public dynamic DSLoaiNV()
+        {
+            var ds = db.PhanLoaiNhanViens.Select(s => new { s.MaLoaiNhanVien, s.TenLoaiNhanVien }).ToList();
+            return ds;
+        }
     }
 }

@@ -34,10 +34,29 @@ namespace OUBus.BUS
         }
         public int delEmployee(NhanVien nv)
         {
+            int kq = 0;//Xoa That Bai
+            if (dNhanVien.KiemTraMaNV(nv) == 1)
+            {
+                try
+                {
+                    dNhanVien.DeleteEmployee(nv);
+                    kq = 1;//Xoa Thanh Cong
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+                kq = -1;//Ma Nhan Vien khong co trong Database
+            return kq;
+        }
+        public int ThemNV(NhanVien nv)
+        {
             int kq = 0;
             try
             {
-                dNhanVien.DeleteEmployee(nv);
+                dNhanVien.InsertNewEmployee(nv);
                 kq = 1;
             }
             catch(Exception ex)
@@ -45,6 +64,26 @@ namespace OUBus.BUS
                 MessageBox.Show(ex.Message);
             }
             return kq;
+        }
+        public int SuaNV(NhanVien nv)
+        {
+            int kq = 0;
+            try
+            {
+                dNhanVien.UpdateEmployee(nv);
+                kq = 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return kq;
+        }
+        public void LayDSLoaiNhanVien(ComboBox cb)
+        {
+            cb.DataSource = dNhanVien.DSLoaiNV();
+            cb.DisplayMember = "TenLoaiNhanVien";
+            cb.ValueMember = "MaLoaiNhanVien";
         }
     }
 }
