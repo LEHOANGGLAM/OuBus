@@ -14,10 +14,29 @@ namespace OUBus.DAO
         {
             db = new OuBusEntities1();
         }
+        //Form Bán Vé
+        public dynamic GetListChuyenDi()
+        {
+            dynamic listVX = db.ChuyenDis.Select(s => new {
+                s.MaChuyenDi,
+                s.DiemKhoiHanh,
+                s.DiemKetThuc,
+                s.NgayKhoiHanh,
+                s.ThoiGianKhoiHanh
+            }).ToList();
+            return listVX;
+        }
 
+        //DS Vé Xe
         public List<VeXe> GetListVeXe()
         {
-            List<VeXe> listVX = db.VeXes.Select(s => s).ToList();
+            List<VeXe> listVX = db.VeXes.Select(s => s).OrderBy(s => s.MaChuyenDi).ToList();
+            return listVX;
+        }
+
+        public List<VeXe> GetListVeXeByMCD(int MCD)
+        {
+            List<VeXe> listVX = db.VeXes.Where(s => s.MaChuyenDi == MCD).ToList();
             return listVX;
         }
 
@@ -45,6 +64,7 @@ namespace OUBus.DAO
             vx.TenKhachHang = vxNew.TenKhachHang;
             vx.SoDienThoai = vxNew.SoDienThoai;
             vx.VitriGhe = vxNew.VitriGhe;
+            vx.TinhTrang = vxNew.TinhTrang;
 
             db.SaveChanges();
         }
@@ -61,5 +81,8 @@ namespace OUBus.DAO
             db.VeXes.Remove(vx);
             db.SaveChanges();
         }
+
+
+
     }
 }

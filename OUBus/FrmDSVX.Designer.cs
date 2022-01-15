@@ -277,6 +277,7 @@ namespace OUBus
             this.btChon.TabIndex = 6;
             this.btChon.Text = "Chọn";
             this.btChon.UseVisualStyleBackColor = false;
+            this.btChon.Click += new System.EventHandler(this.btChon_Click_1);
             // 
             // btnThoat
             // 
