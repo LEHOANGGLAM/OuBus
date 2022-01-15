@@ -78,3 +78,6 @@ C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.csproj.CoreCompileInputs.ca
 C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.csproj.CopyComplete
 C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.exe
 C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.pdb
+C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\bin\Debug\OUBus.exe.config
+C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.exe
+C:\Users\dell\Documents\Visual Studio 2015\Projects\OuBus_New\OuBus\OUBus\obj\Debug\OUBus.pdb
