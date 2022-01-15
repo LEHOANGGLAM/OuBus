@@ -22,8 +22,5 @@ namespace OUBus
         public Nullable<System.DateTime> NgayDat { get; set; }
         public string VitriGhe { get; set; }
         public string TinhTrang { get; set; }
-    
-        public virtual ChuyenDi ChuyenDi { get; set; }
-        public virtual NhanVien NhanVien { get; set; }
     }
 }

@@ -59,13 +59,16 @@
     <Compile Include="BaoCaoDoanhThuChuyenDi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BUS\ChuyenDi_BUS.cs" />
     <Compile Include="BUS\TaiKhoan_BUS.cs" />
     <Compile Include="BUS\VeXe_BUS.cs" />
     <Compile Include="ChuyenDi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ChuyenDi_DAO.cs" />
     <Compile Include="DAO\TaiKhoan_DAO.cs" />
     <Compile Include="DAO\VeXe_DAO.cs" />
+    <Compile Include="DAO\XeKhach_DAO.cs" />
     <Compile Include="FrmDangKi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +122,12 @@
     </Compile>
     <Compile Include="FrmTKDT.Designer.cs">
       <DependentUpon>FrmTKDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ghe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ghe.Designer.cs">
+      <DependentUpon>Ghe.cs</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -196,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTKDT.resx">
       <DependentUpon>FrmTKDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ghe.resx">
+      <DependentUpon>Ghe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

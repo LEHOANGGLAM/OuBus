@@ -78,3 +78,4 @@ C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.csproj.CoreCompileInputs.ca
 C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.csproj.CopyComplete
 C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.exe
 C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.pdb
+C:\MyFolder\LapTrinhCSDL\OuBus\OUBus\obj\Debug\OUBus.Ghe.resources

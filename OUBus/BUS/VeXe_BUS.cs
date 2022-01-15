@@ -12,14 +12,43 @@ namespace OUBus.BUS
     class VeXe_BUS
     {
         VeXe_DAO veXe_DAO;
+        ChuyenDi_DAO chuyenDi_DAO;
+        XeKhach_DAO xeKhach_DAO;
         public VeXe_BUS()
         {
             veXe_DAO = new VeXe_DAO();
+            chuyenDi_DAO = new ChuyenDi_DAO();
+            xeKhach_DAO = new XeKhach_DAO();
         }
 
+        //Form Bán Vé
+        public dynamic GetListChuyenDi()
+        {
+            dynamic listVX = veXe_DAO.GetListChuyenDi();
+            return listVX;
+        }
+
+        public ChuyenDi GetChuyenDiByMCD(int MCH)
+        {
+            ChuyenDi cd = chuyenDi_DAO.FindChuyenDiByMaChuyenDi(MCH);
+            return cd;
+        }
+        public XeKhach GetXeKhachByMaXe(int MaXe)
+        {
+            XeKhach xk = xeKhach_DAO.FindXeByMaXe(MaXe);
+            return xk;
+        }
+
+
+        //DS Vé Xe
         public List<VeXe> GetListVeXe()
         {
             List<VeXe> listVX = veXe_DAO.GetListVeXe();
+            return listVX;
+        }
+        public List<VeXe> GetListVeXeByMCD(int MCD)
+        {
+            List<VeXe> listVX = veXe_DAO.GetListVeXeByMCD(MCD);
             return listVX;
         }
 
@@ -27,6 +56,12 @@ namespace OUBus.BUS
         {
             var ds = veXe_DAO.GetListMaChuyenDi();
             return ds;
+        }
+
+        public VeXe GetVeXeByMaVe(int maVe)
+        {
+            VeXe vx = veXe_DAO.FindVeXe(maVe);
+            return vx;
         }
         //BUTTON
         public void UpdateVeXe(VeXe vx)
@@ -39,11 +74,11 @@ namespace OUBus.BUS
                     MessageBox.Show("Cập nhật thành công");
                 }
                 else
-                    MessageBox.Show("Sửa thất bại: Không tồn tại nhân viên");
+                    MessageBox.Show("Cập nhật thất bại: Không tồn tại nhân viên");
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Sửa thất bại: " + ex.Message);
+                MessageBox.Show("Cập nhật thất bại: " + ex.Message);
             }
         }
 
@@ -52,14 +87,14 @@ namespace OUBus.BUS
             try
             {
                 veXe_DAO.AddVeXe(vx);
-                MessageBox.Show("Thêm thành công");
+               
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Thêm thất bại: " + ex.Message);
+                MessageBox.Show("Cập nhật thất bại: " + ex.Message);
             }
         }
-        public void DeleteProduct(VeXe vx)
+        public void DeleteVeXe(VeXe vx)
         {
             try
             {

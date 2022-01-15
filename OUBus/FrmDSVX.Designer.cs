@@ -52,6 +52,7 @@ namespace OUBus
             this.btnSua = new System.Windows.Forms.Button();
             this.btChon = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btn_Xoa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGVVeXe)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -114,10 +115,11 @@ namespace OUBus
             // 
             // txtViTriGhe
             // 
-            this.txtViTriGhe.Location = new System.Drawing.Point(451, 181);
+            this.txtViTriGhe.Location = new System.Drawing.Point(477, 181);
             this.txtViTriGhe.Margin = new System.Windows.Forms.Padding(4);
             this.txtViTriGhe.Name = "txtViTriGhe";
-            this.txtViTriGhe.Size = new System.Drawing.Size(132, 22);
+            this.txtViTriGhe.ReadOnly = true;
+            this.txtViTriGhe.Size = new System.Drawing.Size(188, 22);
             this.txtViTriGhe.TabIndex = 0;
             // 
             // label5
@@ -139,7 +141,7 @@ namespace OUBus
             this.DGVVeXe.Name = "DGVVeXe";
             this.DGVVeXe.ReadOnly = true;
             this.DGVVeXe.RowHeadersWidth = 51;
-            this.DGVVeXe.Size = new System.Drawing.Size(1362, 476);
+            this.DGVVeXe.Size = new System.Drawing.Size(1234, 476);
             this.DGVVeXe.TabIndex = 3;
             this.DGVVeXe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVVeXe_CellClick);
             // 
@@ -148,7 +150,7 @@ namespace OUBus
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1432, 321);
+            this.label6.Location = new System.Drawing.Point(1296, 328);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 20);
@@ -158,10 +160,10 @@ namespace OUBus
             // cbMaChuyenDi
             // 
             this.cbMaChuyenDi.FormattingEnabled = true;
-            this.cbMaChuyenDi.Location = new System.Drawing.Point(141, 175);
+            this.cbMaChuyenDi.Location = new System.Drawing.Point(151, 174);
             this.cbMaChuyenDi.Margin = new System.Windows.Forms.Padding(4);
             this.cbMaChuyenDi.Name = "cbMaChuyenDi";
-            this.cbMaChuyenDi.Size = new System.Drawing.Size(160, 24);
+            this.cbMaChuyenDi.Size = new System.Drawing.Size(188, 24);
             this.cbMaChuyenDi.TabIndex = 4;
             // 
             // txtSDT
@@ -194,11 +196,11 @@ namespace OUBus
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtTimKiem);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(891, 110);
+            this.groupBox1.Location = new System.Drawing.Point(795, 134);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(471, 150);
+            this.groupBox1.Size = new System.Drawing.Size(439, 150);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
@@ -212,6 +214,7 @@ namespace OUBus
             this.rdSDT.TabIndex = 2;
             this.rdSDT.Text = "Theo SĐT";
             this.rdSDT.UseVisualStyleBackColor = true;
+            this.rdSDT.CheckedChanged += new System.EventHandler(this.rdSDT_CheckedChanged);
             // 
             // rbTen
             // 
@@ -223,6 +226,7 @@ namespace OUBus
             this.rbTen.TabIndex = 2;
             this.rbTen.Text = "Theo tên KH";
             this.rbTen.UseVisualStyleBackColor = true;
+            this.rbTen.CheckedChanged += new System.EventHandler(this.rbTen_CheckedChanged);
             // 
             // rbCD
             // 
@@ -236,6 +240,7 @@ namespace OUBus
             this.rbCD.TabStop = true;
             this.rbCD.Text = "Theo mã CĐ";
             this.rbCD.UseVisualStyleBackColor = true;
+            this.rbCD.CheckedChanged += new System.EventHandler(this.rbCD_CheckedChanged);
             // 
             // txtTimKiem
             // 
@@ -244,10 +249,11 @@ namespace OUBus
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(243, 22);
             this.txtTimKiem.TabIndex = 0;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // btnBan
             // 
-            this.btnBan.Location = new System.Drawing.Point(1417, 391);
+            this.btnBan.Location = new System.Drawing.Point(1281, 373);
             this.btnBan.Margin = new System.Windows.Forms.Padding(4);
             this.btnBan.Name = "btnBan";
             this.btnBan.Size = new System.Drawing.Size(143, 63);
@@ -258,7 +264,7 @@ namespace OUBus
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(1417, 512);
+            this.btnSua.Location = new System.Drawing.Point(1281, 477);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(143, 59);
@@ -270,17 +276,18 @@ namespace OUBus
             // btChon
             // 
             this.btChon.BackColor = System.Drawing.Color.LightCoral;
-            this.btChon.Location = new System.Drawing.Point(605, 175);
+            this.btChon.Location = new System.Drawing.Point(687, 174);
             this.btChon.Margin = new System.Windows.Forms.Padding(4);
             this.btChon.Name = "btChon";
             this.btChon.Size = new System.Drawing.Size(100, 36);
             this.btChon.TabIndex = 6;
             this.btChon.Text = "Chọn";
             this.btChon.UseVisualStyleBackColor = false;
+            this.btChon.Click += new System.EventHandler(this.btChon_Click);
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(1417, 638);
+            this.btnThoat.Location = new System.Drawing.Point(1281, 678);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(143, 59);
@@ -289,12 +296,24 @@ namespace OUBus
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.Location = new System.Drawing.Point(1281, 585);
+            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(143, 59);
+            this.btn_Xoa.TabIndex = 7;
+            this.btn_Xoa.Text = "Xóa";
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
+            // 
             // FrmDSVX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::OUBus.Properties.Resources.Background2;
-            this.ClientSize = new System.Drawing.Size(1640, 801);
+            this.ClientSize = new System.Drawing.Size(1487, 801);
+            this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btChon);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnSua);
@@ -348,5 +367,6 @@ namespace OUBus
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btChon;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btn_Xoa;
     }
 }
