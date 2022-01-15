@@ -24,13 +24,18 @@ namespace OUBus
             int kq = 0;
             int a = txtEmail.Text.IndexOf("@");
             string b = "@ou.edu.vn";
-            if (txtEmail.Text.Substring(a + 1) != b)
-            {
+            if (a == -1)
                 kq = 1;
+            else
+            {
+                if (txtEmail.Text.Substring(a) != b)
+                {
+                    kq = 1;
+                }
             }
             return kq;
         }
-        private int KiemTra(String input)
+        private int KiemTraUserPass(String input)
         {
             int demSoKyTuDB = 0, DoDaiChuoi = 0, demSoKySo = 0, demSoKyTu = 0, demKhoangTrang = 0;
             int kq = 0;
@@ -41,18 +46,59 @@ namespace OUBus
                     demSoKyTuDB += 1;
                 else if (Char.IsNumber(a) == true)
                     demSoKySo += 1;
-                else if (Char.IsNumber(a) == false && Char.IsSymbol(a) == false)
+                else if (Char.IsLetter(a) == true)
                     demSoKyTu += 1;
                 else if (Char.IsWhiteSpace(a) == true)
                     demKhoangTrang += 1;
             }
             if (demSoKySo == DoDaiChuoi || demSoKyTuDB > 0 || demSoKyTu == DoDaiChuoi || demKhoangTrang > 0)
-                kq = 1;//Sai định dạng UserName
-            else if (demSoKySo == DoDaiChuoi || demSoKyTuDB == DoDaiChuoi || demSoKyTu == DoDaiChuoi || demKhoangTrang > 0)
-                kq = 2;//Sai định dạng Pass
-            else if (demKhoangTrang > 0 || demSoKySo > 0 || demSoKyTuDB > 0)
-                kq = 3;
-
+            {
+                kq = 1;
+            }
+            return kq;
+        }
+        private int KiemTraSDT(String input)
+        {
+            int demSoKyTuDB = 0, DoDaiChuoi = 0, demSoKySo = 0, demSoKyTu = 0, demKhoangTrang = 0;
+            int kq = 0;
+            foreach (char a in input)
+            {
+                DoDaiChuoi += 1;
+                if (Char.IsSymbol(a) == true)
+                    demSoKyTuDB += 1;
+                else if (Char.IsNumber(a) == true)
+                    demSoKySo += 1;
+                else if (Char.IsLetter(a) == true)
+                    demSoKyTu += 1;
+                else if (Char.IsWhiteSpace(a) == true)
+                    demKhoangTrang += 1;
+            }
+            if (demKhoangTrang>0||demSoKyTu>0||demSoKyTuDB>0)
+            {
+                kq = 1;
+            }
+            return kq;
+        }
+        private int KiemTraEmail(String input)
+        {
+            int demSoKyTuDB = 0, DoDaiChuoi = 0, demSoKySo = 0, demSoKyTu = 0, demKhoangTrang = 0;
+            int kq = 0;
+            foreach (char a in input)
+            {
+                DoDaiChuoi += 1;
+                if (Char.IsSymbol(a) == true)
+                    demSoKyTuDB += 1;
+                else if (Char.IsNumber(a) == true)
+                    demSoKySo += 1;
+                else if (Char.IsLetter(a) == true)
+                    demSoKyTu += 1;
+                else if (Char.IsWhiteSpace(a) == true)
+                    demKhoangTrang += 1;
+            }
+            if (demKhoangTrang>0||demSoKySo==DoDaiChuoi||demSoKyTu==DoDaiChuoi||demSoKyTuDB==DoDaiChuoi)
+            {
+                kq = 1;
+            }
             return kq;
         }
         private void button2_Click(object sender, EventArgs e)
@@ -70,17 +116,17 @@ namespace OUBus
                 MessageBox.Show("Nhập SDT");
             else
             {
-                if (KiemTra(txtPassWord.Text) == 2)
+                if (KiemTraUserPass(txtPassWord.Text) == 1)
                     MessageBox.Show("Sai định dạng mật khẩu!!!");
-                else if (KiemTra(txtUserName.Text) == 1)
+                else if (KiemTraUserPass(txtUserName.Text) == 1)
                     MessageBox.Show("Sai định dạng tài khoản!!!");
-                else if (KiemTra(txtPhone.Text) == 3)
+                else if (KiemTraSDT(txtPhone.Text) == 1 || txtPhone.Text.Length!=10)
                     MessageBox.Show("Sai định dạng SDT!!!");
-                else
+                else 
                 {
                     if (txtPassWord.Text == txtRetypePass.Text)
                     {
-                        if (DinhDangMail() == 1)
+                        if ( KiemTraEmail(txtEmail.Text)==1 || DinhDangMail() == 1)
                             MessageBox.Show("Sai định dạng mail");
                         else
                         {

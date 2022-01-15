@@ -45,17 +45,29 @@ namespace OUBus.BUS
         public int KiemTraMatKhau(TaiKhoanDangNhap tk)
         {
             int kq = 0;
-            TaiKhoanDangNhap ds = db.TaiKhoanDangNhaps.FirstOrDefault(s => s.TaiKhoan == tk.TaiKhoan);
-            if (ds.MatKhau == tk.MatKhau)
-                kq = 1;
+            var ds = db.TaiKhoanDangNhaps.Select(s => s).Where(s => s.TaiKhoan == tk.TaiKhoan).ToList();
+            foreach (var item in ds)
+            {
+                if (item.MatKhau == tk.MatKhau)
+                {
+                    kq = 1;
+                    break;
+                }
+            }
             return kq;
         }
         public int KiemTraMaQuyen(TaiKhoanDangNhap tk)
         {
             int kq = 0;
-            TaiKhoanDangNhap ds = db.TaiKhoanDangNhaps.FirstOrDefault(s => s.TaiKhoan == tk.TaiKhoan);
-            if (ds.MaQuyen == tk.MaQuyen)
-                kq = 1;
+            var ds = db.TaiKhoanDangNhaps.Select(s => s).Where(s=>s.TaiKhoan==tk.TaiKhoan).ToList();
+            foreach (var item in ds)
+            {
+                if (item.MaQuyen == tk.MaQuyen)
+                {
+                    kq = 1;
+                    break;
+                }
+            }
             return kq;
         }
     }
