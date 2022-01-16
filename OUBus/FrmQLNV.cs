@@ -26,6 +26,7 @@ namespace OUBus
         private void btnThem_Click(object sender, EventArgs e)
         {
             FrmThemNV frmthem = new FrmThemNV();
+            frmthem.dt = dataGridView1;
             frmthem.ShowDialog();
         }
         private void KichThuocGridView()
@@ -126,9 +127,7 @@ namespace OUBus
                 MessageBox.Show("Chưa chọn nhân viên để xóa");
             else
             {
-                if (bNhanVien.delEmployee(nv) == -1)
-                    MessageBox.Show("EmployeeID isn't exists in database");
-                else if (bNhanVien.delEmployee(nv) == 1)
+                if (bNhanVien.delEmployee(nv) == 1)
                 {
                     MessageBox.Show("Xóa Thành Công");
                     dataGridView1.DataSource = null;

@@ -19,7 +19,7 @@ namespace OUBus
             InitializeComponent();
             bNhanVien = new NhanVien_BUS();
         }
-        public int EmployeeID;
+        public int EmployeeID=0;
         public string EmployeeName;
         public int EmployeeTypeCode;
         public DateTime? DateOfBirth=null;
@@ -73,33 +73,38 @@ namespace OUBus
         private void button2_Click(object sender, EventArgs e)
         {
             NhanVien NewEmployee = new NhanVien();
-            if (textBox2.Text == "")
-                MessageBox.Show("Chưa nhập Họ Tên");
-            else if (textBox5.Text == "")
-                MessageBox.Show("Chưa nhập quê quán");
-            else if (textBox7.Text == "")
-                MessageBox.Show("Chưa nhập cmnd");
-            else
+            if (EmployeeID == 0)
             {
-                if (KiemTraHoTen(textBox2.Text) == 1)
-                    MessageBox.Show("Sai định dạng họ tên");
-                else if (KiemTraCMND(textBox7.Text) == 1)
-                    MessageBox.Show("Sai định dạng cmnd");
-                else if(KiemTraHoTen(textBox5.Text)==1)
-                    MessageBox.Show("Sai định dạng quê quán");
+                if (textBox2.Text == "")
+                    MessageBox.Show("Chưa nhập Họ Tên");
+                else if (textBox5.Text == "")
+                    MessageBox.Show("Chưa nhập quê quán");
+                else if (textBox7.Text == "")
+                    MessageBox.Show("Chưa nhập cmnd");
                 else
                 {
-                    NewEmployee.TenNhanVien = textBox2.Text;
-                    NewEmployee.QueQuan = textBox5.Text;
-                    NewEmployee.CMND = textBox7.Text;
-                    NewEmployee.MaLoaiNhanVien = int.Parse(comboBox1.SelectedValue.ToString());
-                    NewEmployee.NgaySinh = dateTimePicker1.Value;
-                    if (bNhanVien.ThemNV(NewEmployee) == 1)
-                        MessageBox.Show("Thêm thành công");
+                    if (KiemTraHoTen(textBox2.Text) == 1)
+                        MessageBox.Show("Sai định dạng họ tên");
+                    else if (KiemTraCMND(textBox7.Text) == 1)
+                        MessageBox.Show("Sai định dạng cmnd");
+                    else if (KiemTraHoTen(textBox5.Text) == 1)
+                        MessageBox.Show("Sai định dạng quê quán");
                     else
-                        MessageBox.Show("Thêm thất bại");
+                    {
+                        NewEmployee.TenNhanVien = textBox2.Text;
+                        NewEmployee.QueQuan = textBox5.Text;
+                        NewEmployee.CMND = textBox7.Text;
+                        NewEmployee.MaLoaiNhanVien = int.Parse(comboBox1.SelectedValue.ToString());
+                        NewEmployee.NgaySinh = dateTimePicker1.Value;
+                        if (bNhanVien.ThemNV(NewEmployee) == 1)
+                            MessageBox.Show("Thêm thành công");
+                        else
+                            MessageBox.Show("Thêm thất bại");
+                    }
                 }
             }
+            else
+                MessageBox.Show("Bạn chuyển đến từ Sửa không thể Thêm");
         }
 
         private void FrmThemNV_Load(object sender, EventArgs e)
@@ -145,34 +150,39 @@ namespace OUBus
         private void button3_Click(object sender, EventArgs e)
         {
             NhanVien NewEmployee = new NhanVien();
-            if (textBox2.Text == "")
-                MessageBox.Show("Chưa nhập Họ Tên");
-            else if (textBox5.Text == "")
-                MessageBox.Show("Chưa nhập quê quán");
-            else if (textBox7.Text == "")
-                MessageBox.Show("Chưa nhập cmnd");
-            else
+            if (EmployeeID!=0)
             {
-                if (KiemTraHoTen(textBox2.Text) == 1)
-                    MessageBox.Show("Sai định dạng họ tên");
-                else if (KiemTraCMND(textBox7.Text) == 1)
-                    MessageBox.Show("Sai định dạng cmnd");
-                else if (KiemTraHoTen(textBox5.Text) == 1)
-                    MessageBox.Show("Sai định dạng quê quán");
+                if (textBox2.Text == "")
+                    MessageBox.Show("Chưa nhập Họ Tên");
+                else if (textBox5.Text == "")
+                    MessageBox.Show("Chưa nhập quê quán");
+                else if (textBox7.Text == "")
+                    MessageBox.Show("Chưa nhập cmnd");
                 else
                 {
-                    NewEmployee.TenNhanVien = textBox2.Text;
-                    NewEmployee.QueQuan = textBox5.Text;
-                    NewEmployee.CMND = textBox7.Text;
-                    NewEmployee.MaLoaiNhanVien = int.Parse(comboBox1.SelectedValue.ToString());
-                    NewEmployee.NgaySinh = dateTimePicker1.Value;
-                    NewEmployee.MaNhanVien = EmployeeID;
-                    if (bNhanVien.SuaNV(NewEmployee) == 1)
-                        MessageBox.Show("Sửa thành công");
+                    if (KiemTraHoTen(textBox2.Text) == 1)
+                        MessageBox.Show("Sai định dạng họ tên");
+                    else if (KiemTraCMND(textBox7.Text) == 1)
+                        MessageBox.Show("Sai định dạng cmnd");
+                    else if (KiemTraHoTen(textBox5.Text) == 1)
+                        MessageBox.Show("Sai định dạng quê quán");
                     else
-                        MessageBox.Show("Sửa thất bại");
+                    {
+                        NewEmployee.TenNhanVien = textBox2.Text;
+                        NewEmployee.QueQuan = textBox5.Text;
+                        NewEmployee.CMND = textBox7.Text;
+                        NewEmployee.MaLoaiNhanVien = int.Parse(comboBox1.SelectedValue.ToString());
+                        NewEmployee.NgaySinh = dateTimePicker1.Value;
+                        NewEmployee.MaNhanVien = EmployeeID;
+                        if (bNhanVien.SuaNV(NewEmployee) == 1)
+                            MessageBox.Show("Sửa thành công");
+                        else
+                            MessageBox.Show("Sửa thất bại");
+                    }
                 }
             }
+            else
+                MessageBox.Show("Bạn chuyển đến từ Thêm không thể Sửa");
         }
     }
 }
