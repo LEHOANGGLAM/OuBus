@@ -81,6 +81,8 @@ namespace OUBus
                     MessageBox.Show("Chưa nhập quê quán");
                 else if (textBox7.Text == "")
                     MessageBox.Show("Chưa nhập cmnd");
+                else if (comboBox1.SelectedValue == null)
+                    MessageBox.Show("Loại NV trống");
                 else
                 {
                     if (KiemTraHoTen(textBox2.Text) == 1)
@@ -158,6 +160,8 @@ namespace OUBus
                     MessageBox.Show("Chưa nhập quê quán");
                 else if (textBox7.Text == "")
                     MessageBox.Show("Chưa nhập cmnd");
+                else if (comboBox1.SelectedValue == null)
+                    MessageBox.Show("Loại NV trống");
                 else
                 {
                     if (KiemTraHoTen(textBox2.Text) == 1)

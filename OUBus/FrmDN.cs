@@ -36,7 +36,7 @@ namespace OUBus
             if (txtDangNhap.Text == "")
                 MessageBox.Show("Chưa nhập tài khoản");
             else if (txtMatKhau.Text == "")
-                MessageBox.Show("Chưa nhập tài khoản");
+                MessageBox.Show("Chưa nhập mật khẩu");
             else
             {
                 DangNhap.TaiKhoan = txtDangNhap.Text;
@@ -73,6 +73,38 @@ namespace OUBus
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                btnDN.PerformClick();
+            }
+        }
+
+        private void cbChon_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnDN.PerformClick();
+            }
+        }
+
+        private void txtDangNhap_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnDN.PerformClick();
+            }
+        }
+
+        private void txtMatKhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnDN.PerformClick();
+            }
         }
     }
 }
