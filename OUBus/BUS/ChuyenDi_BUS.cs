@@ -50,7 +50,7 @@ namespace OUBus.BUS
                     MessageBox.Show("Cập nhật thành công");
                 }
                 else
-                    MessageBox.Show("Cập nhật thất bại: Không tồn tại nhân viên");
+                    MessageBox.Show("Cập nhật thất bại: Không tồn tại Mã Chuyến");
             }
             catch (SqlException ex)
             {

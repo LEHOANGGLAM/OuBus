@@ -60,9 +60,10 @@ namespace OUBus
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(390, 0);
+            this.label1.Location = new System.Drawing.Point(585, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 39);
+            this.label1.Size = new System.Drawing.Size(365, 61);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lịch chuyến đi";
             // 
@@ -70,9 +71,10 @@ namespace OUBus
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(12, 90);
+            this.label4.Location = new System.Drawing.Point(18, 138);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "Mã xe";
             // 
@@ -80,9 +82,10 @@ namespace OUBus
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(12, 156);
+            this.label5.Location = new System.Drawing.Point(18, 240);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 13);
+            this.label5.Size = new System.Drawing.Size(146, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "Thời gian khởi hành";
             // 
@@ -90,9 +93,10 @@ namespace OUBus
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(12, 125);
+            this.label6.Location = new System.Drawing.Point(18, 192);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.Size = new System.Drawing.Size(119, 20);
             this.label6.TabIndex = 1;
             this.label6.Text = "Điểm khởi hành";
             // 
@@ -100,9 +104,10 @@ namespace OUBus
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(323, 128);
+            this.label7.Location = new System.Drawing.Point(484, 197);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 13);
+            this.label7.Size = new System.Drawing.Size(107, 20);
             this.label7.TabIndex = 1;
             this.label7.Text = "Điểm kết thúc";
             // 
@@ -110,9 +115,10 @@ namespace OUBus
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(467, 90);
+            this.label8.Location = new System.Drawing.Point(700, 138);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 13);
+            this.label8.Size = new System.Drawing.Size(43, 20);
             this.label8.TabIndex = 1;
             this.label8.Text = "VND";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -121,9 +127,10 @@ namespace OUBus
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(282, 90);
+            this.label9.Location = new System.Drawing.Point(423, 138);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.Size = new System.Drawing.Size(54, 20);
             this.label9.TabIndex = 1;
             this.label9.Text = "Giá vé";
             // 
@@ -132,55 +139,62 @@ namespace OUBus
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(995, 207);
+            this.label10.Location = new System.Drawing.Point(1492, 318);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 24);
+            this.label10.Size = new System.Drawing.Size(164, 33);
             this.label10.TabIndex = 1;
             this.label10.Text = "Chức năng";
             // 
             // cbMaxe
             // 
             this.cbMaxe.FormattingEnabled = true;
-            this.cbMaxe.Location = new System.Drawing.Point(119, 82);
+            this.cbMaxe.Location = new System.Drawing.Point(178, 126);
+            this.cbMaxe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbMaxe.Name = "cbMaxe";
-            this.cbMaxe.Size = new System.Drawing.Size(121, 21);
+            this.cbMaxe.Size = new System.Drawing.Size(180, 28);
             this.cbMaxe.TabIndex = 0;
             // 
             // txtGiave
             // 
-            this.txtGiave.Location = new System.Drawing.Point(326, 83);
+            this.txtGiave.Location = new System.Drawing.Point(489, 128);
+            this.txtGiave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGiave.Name = "txtGiave";
-            this.txtGiave.Size = new System.Drawing.Size(135, 20);
+            this.txtGiave.Size = new System.Drawing.Size(200, 26);
             this.txtGiave.TabIndex = 2;
             // 
             // txtDiemkhoihanh
             // 
-            this.txtDiemkhoihanh.Location = new System.Drawing.Point(119, 121);
+            this.txtDiemkhoihanh.Location = new System.Drawing.Point(178, 186);
+            this.txtDiemkhoihanh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDiemkhoihanh.Name = "txtDiemkhoihanh";
-            this.txtDiemkhoihanh.Size = new System.Drawing.Size(160, 20);
+            this.txtDiemkhoihanh.Size = new System.Drawing.Size(238, 26);
             this.txtDiemkhoihanh.TabIndex = 1;
             // 
             // txtTimkiem
             // 
-            this.txtTimkiem.Location = new System.Drawing.Point(631, 87);
+            this.txtTimkiem.Location = new System.Drawing.Point(946, 134);
+            this.txtTimkiem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTimkiem.Name = "txtTimkiem";
-            this.txtTimkiem.Size = new System.Drawing.Size(235, 20);
+            this.txtTimkiem.Size = new System.Drawing.Size(350, 26);
             this.txtTimkiem.TabIndex = 5;
             // 
             // txtDiemketthuc
             // 
-            this.txtDiemketthuc.Location = new System.Drawing.Point(402, 125);
+            this.txtDiemketthuc.Location = new System.Drawing.Point(603, 192);
+            this.txtDiemketthuc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDiemketthuc.Name = "txtDiemketthuc";
-            this.txtDiemketthuc.Size = new System.Drawing.Size(147, 20);
+            this.txtDiemketthuc.Size = new System.Drawing.Size(218, 26);
             this.txtDiemketthuc.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(576, 90);
+            this.label2.Location = new System.Drawing.Point(864, 138);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(71, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tìm kiếm";
             this.label2.Click += new System.EventHandler(this.label8_Click);
@@ -188,9 +202,10 @@ namespace OUBus
             // btnThem
             // 
             this.btnThem.BackColor = System.Drawing.Color.Transparent;
-            this.btnThem.Location = new System.Drawing.Point(995, 251);
+            this.btnThem.Location = new System.Drawing.Point(1492, 386);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(112, 37);
+            this.btnThem.Size = new System.Drawing.Size(168, 57);
             this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -198,9 +213,10 @@ namespace OUBus
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(995, 355);
+            this.btnSua.Location = new System.Drawing.Point(1492, 546);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(112, 38);
+            this.btnSua.Size = new System.Drawing.Size(168, 58);
             this.btnSua.TabIndex = 8;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -208,9 +224,10 @@ namespace OUBus
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(995, 459);
+            this.btnThoat.Location = new System.Drawing.Point(1492, 706);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(112, 38);
+            this.btnThoat.Size = new System.Drawing.Size(168, 58);
             this.btnThoat.TabIndex = 9;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -219,43 +236,47 @@ namespace OUBus
             // GVCD
             // 
             this.GVCD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GVCD.Location = new System.Drawing.Point(0, 196);
+            this.GVCD.Location = new System.Drawing.Point(0, 302);
+            this.GVCD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GVCD.Name = "GVCD";
-            this.GVCD.Size = new System.Drawing.Size(943, 475);
+            this.GVCD.Size = new System.Drawing.Size(1414, 731);
             this.GVCD.TabIndex = 8;
             this.GVCD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVCD_CellContentClick);
             // 
             // Thgiankhoihanh
             // 
-            this.Thgiankhoihanh.Location = new System.Drawing.Point(120, 156);
+            this.Thgiankhoihanh.Location = new System.Drawing.Point(180, 240);
+            this.Thgiankhoihanh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Thgiankhoihanh.Name = "Thgiankhoihanh";
-            this.Thgiankhoihanh.Size = new System.Drawing.Size(200, 20);
+            this.Thgiankhoihanh.Size = new System.Drawing.Size(298, 26);
             this.Thgiankhoihanh.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(345, 162);
+            this.label3.Location = new System.Drawing.Point(518, 249);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.Size = new System.Drawing.Size(112, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Giờ Khởi Hành";
             // 
             // txtGioKhoiHanh
             // 
-            this.txtGioKhoiHanh.Location = new System.Drawing.Point(424, 159);
+            this.txtGioKhoiHanh.Location = new System.Drawing.Point(636, 245);
+            this.txtGioKhoiHanh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGioKhoiHanh.Name = "txtGioKhoiHanh";
-            this.txtGioKhoiHanh.Size = new System.Drawing.Size(147, 20);
+            this.txtGioKhoiHanh.Size = new System.Drawing.Size(218, 26);
             this.txtGioKhoiHanh.TabIndex = 3;
             // 
             // FrmQLCD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::OUBus.Properties.Resources.Background2;
-            this.ClientSize = new System.Drawing.Size(1137, 608);
+            this.ClientSize = new System.Drawing.Size(1706, 935);
             this.Controls.Add(this.Thgiankhoihanh);
             this.Controls.Add(this.GVCD);
             this.Controls.Add(this.btnThoat);
@@ -278,6 +299,7 @@ namespace OUBus
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmQLCD";
             this.Text = "Quản lý chuyến đi ";
             this.Load += new System.EventHandler(this.FrmQLCD_Load);

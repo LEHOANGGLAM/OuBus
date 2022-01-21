@@ -20,12 +20,14 @@ namespace OUBus
             InitializeComponent();
             ChuyenDi_BUS = new ChuyenDi_BUS();
         }
+        public int MaChuyen = 0;
         public int MaXe = 0;
         public DateTime? NgayKH = null;
-        public int GioKH;
+        public TimeSpan GioKH;
         public string DiemKH;
         public string DiemKT;
-        public int SoGheTrong;
+        public int SoGheTrong=0;
+        public int SoGheDat=0;
         public int GiaVe;
         public DataGridView dt;
         private void FrmThemCD_Load(object sender, EventArgs e)
@@ -37,11 +39,36 @@ namespace OUBus
                 cbMX.ValueMember = "Maxe";
             }
             catch (NullReferenceException) { }
+            if (MaXe == 0)
+                cbMX.SelectedValue = 1;
+            else
+                cbMX.SelectedValue = MaXe;
+            if (NgayKH == null)
+                dateTimePicker1.Value = DateTime.Now;
+            else
+                dateTimePicker1.Value = NgayKH.Value;
+            if (DiemKH == "")
+                txtDKH.Text = "";
+            else
+                txtDKH.Text = DiemKH;
+            if (DiemKT == "")
+                txtDKT.Text = "";
+            else
+                txtDKT.Text = DiemKT;
+            if (GioKH == null)
+                txtTGKH.Text = "";
+            else
+                txtTGKH.Text = GioKH.ToString();
+            if (SoGheTrong == 0)
+                txtSGT.Text = "";
+            else
+                txtSGT.Text = SoGheTrong.ToString();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            FrmQLCD a = new FrmQLCD();
+            dt.DataSource=ChuyenDi_BUS.GetListChuyenDi();
+            FrmQLCD a = new FrmQLCD(dt);
             this.Close();
         }
 
@@ -64,12 +91,11 @@ namespace OUBus
                 {
                         NewChuyenDi.MaXe = int.Parse(cbMX.SelectedValue.ToString());
                         NewChuyenDi.NgayKhoiHanh = dateTimePicker1.Value;
-
-                        TimeSpan ts = TimeSpan.FromHours(int.Parse(txtTGKH.Text));
-                        NewChuyenDi.ThoiGianKhoiHanh =  ts;
+                        NewChuyenDi.ThoiGianKhoiHanh =  TimeSpan.Parse(txtTGKH.Text);
                         NewChuyenDi.DiemKhoiHanh = txtDKH.Text;
                         NewChuyenDi.DiemKetThuc = txtDKT.Text;
                         NewChuyenDi.SoGheTrong = int.Parse(txtSGT.Text);
+                        NewChuyenDi.SoGheDat = 0;
                         NewChuyenDi.GiaVe = int.Parse(txtGV.Text);
 
                         ChuyenDi_BUS.AddChuyenDi(NewChuyenDi);    
@@ -99,15 +125,16 @@ namespace OUBus
                     MessageBox.Show("Chưa nhập giá vé");
                 else
                 {
+                    NewChuyenDi.MaChuyenDi = MaChuyen;
                     NewChuyenDi.MaXe = int.Parse(cbMX.SelectedValue.ToString());
                     NewChuyenDi.NgayKhoiHanh = dateTimePicker1.Value;
-
-                    TimeSpan ts = TimeSpan.FromHours(int.Parse(txtTGKH.Text));
-                    NewChuyenDi.ThoiGianKhoiHanh = ts;
+                    NewChuyenDi.ThoiGianKhoiHanh = TimeSpan.Parse(txtTGKH.Text);
                     NewChuyenDi.DiemKhoiHanh = txtDKH.Text;
                     NewChuyenDi.DiemKetThuc = txtDKT.Text;
                     NewChuyenDi.SoGheTrong = int.Parse(txtSGT.Text);
+                    NewChuyenDi.SoGheDat = 0;
                     NewChuyenDi.GiaVe = int.Parse(txtGV.Text);
+                    ChuyenDi_BUS.UpdateChuyenDi(NewChuyenDi);
 
                     MessageBox.Show("Sửa thành công");
 

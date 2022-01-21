@@ -19,7 +19,10 @@ namespace OUBus
             InitializeComponent();
             ChuyenDi_BUS = new ChuyenDi_BUS();
         }
-
+        public FrmQLCD(DataGridView dg)
+        {
+            GVCD = dg;
+        }
         private void label8_Click(object sender, EventArgs e)
         {
 
@@ -51,7 +54,7 @@ namespace OUBus
                txtDiemkhoihanh.Text = GVCD.Rows[e.RowIndex].Cells["DiemKhoiHanh"].Value == null ? null : GVCD.Rows[e.RowIndex].Cells["DiemKhoiHanh"].Value.ToString();
                txtDiemketthuc.Text = GVCD.Rows[e.RowIndex].Cells["DiemKetThuc"].Value == null ? null : GVCD.Rows[e.RowIndex].Cells["DiemKetThuc"].Value.ToString();
                Thgiankhoihanh.Text = GVCD.Rows[e.RowIndex].Cells["NgayKhoiHanh"].Value == null ? null : GVCD.Rows[e.RowIndex].Cells["NgayKhoiHanh"].Value.ToString();
-               txtGioKhoiHanh.Text = txtDiemketthuc.Text = GVCD.Rows[e.RowIndex].Cells["ThoiGianKhoiHanh"].Value == null ? null : GVCD.Rows[e.RowIndex].Cells["ThoiGianKhoiHanh"].Value.ToString();
+               txtGioKhoiHanh.Text = GVCD.Rows[e.RowIndex].Cells["ThoiGianKhoiHanh"].Value == null ? null : GVCD.Rows[e.RowIndex].Cells["ThoiGianKhoiHanh"].Value.ToString();
 
                
 
@@ -69,13 +72,23 @@ namespace OUBus
         private void btnThem_Click(object sender, EventArgs e)
         {
             FrmThemCD cd = new FrmThemCD();
+            cd.dt = GVCD;
             cd.Show();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             FrmThemCD cd = new FrmThemCD();
-            cd.Show();
+            cd.MaChuyen = int.Parse(GVCD.CurrentRow.Cells[0].Value.ToString());
+            cd.MaXe = int.Parse(GVCD.CurrentRow.Cells[1].Value.ToString());
+            cd.NgayKH = DateTime.Parse(GVCD.CurrentRow.Cells[2].Value.ToString());
+            cd.GioKH = TimeSpan.Parse(GVCD.CurrentRow.Cells[3].Value.ToString());
+            cd.DiemKH = GVCD.CurrentRow.Cells[4].Value.ToString();
+            cd.DiemKT = GVCD.CurrentRow.Cells[5].Value.ToString();
+            cd.SoGheTrong = int.Parse(GVCD.CurrentRow.Cells[6].Value.ToString());
+            cd.GiaVe = int.Parse(GVCD.CurrentRow.Cells[8].Value.ToString());
+            cd.dt = GVCD;
+            cd.ShowDialog();
         }
     }
 }
