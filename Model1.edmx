@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OuBusModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="OuBusModelStoreContainer">
+          <EntitySet Name="BaoCaoDoanhThuChuyenDi" EntityType="OuBusModel.Store.BaoCaoDoanhThuChuyenDi" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChuyenDi" EntityType="OuBusModel.Store.ChuyenDi" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NhanVien" EntityType="OuBusModel.Store.NhanVien" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhanLoaiNhanVien" EntityType="OuBusModel.Store.PhanLoaiNhanVien" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhanQuyen" EntityType="OuBusModel.Store.PhanQuyen" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaiKhoanDangNhap" EntityType="OuBusModel.Store.TaiKhoanDangNhap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VeXe" EntityType="OuBusModel.Store.VeXe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="XeKhach" EntityType="OuBusModel.Store.XeKhach" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" Association="OuBusModel.Store.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
+            <End Role="ChuyenDi" EntitySet="ChuyenDi" />
+            <End Role="BaoCaoDoanhThuChuyenDi" EntitySet="BaoCaoDoanhThuChuyenDi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChuyenDi_XeKhach" Association="OuBusModel.Store.FK_ChuyenDi_XeKhach">
+            <End Role="XeKhach" EntitySet="XeKhach" />
+            <End Role="ChuyenDi" EntitySet="ChuyenDi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NhanVien_PhanLoaiNhanVien" Association="OuBusModel.Store.FK_NhanVien_PhanLoaiNhanVien">
+            <End Role="PhanLoaiNhanVien" EntitySet="PhanLoaiNhanVien" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanDangNhap_NhanVien" Association="OuBusModel.Store.FK_TaiKhoanDangNhap_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanDangNhap_PhanQuyen" Association="OuBusModel.Store.FK_TaiKhoanDangNhap_PhanQuyen">
+            <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+            <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VeXe_ChuyenDi" Association="OuBusModel.Store.FK_VeXe_ChuyenDi">
+            <End Role="ChuyenDi" EntitySet="ChuyenDi" />
+            <End Role="VeXe" EntitySet="VeXe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VeXe_NhanVien" Association="OuBusModel.Store.FK_VeXe_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="VeXe" EntitySet="VeXe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_XeKhach_NhanVien" Association="OuBusModel.Store.FK_XeKhach_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="XeKhach" EntitySet="XeKhach" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BaoCaoDoanhThuChuyenDi">
+          <Key>
+            <PropertyRef Name="MaChuyenDi" />
+          </Key>
+          <Property Name="MaChuyenDi" Type="int" Nullable="false" />
+          <Property Name="DoanhThu" Type="int" />
+          <Property Name="SoVe" Type="int" />
+          <Property Name="Ngay" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ChuyenDi">
+          <Key>
+            <PropertyRef Name="MaChuyenDi" />
+          </Key>
+          <Property Name="MaChuyenDi" Type="int" Nullable="false" />
+          <Property Name="MaXe" Type="int" />
+          <Property Name="NgayKhoiHanh" Type="date" />
+          <Property Name="ThoiGianKhoiHanh" Type="time" />
+          <Property Name="DiemKhoiHanh" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiemKetThuc" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoGheTrong" Type="int" />
+          <Property Name="SoGheDat" Type="int" />
+          <Property Name="GiaVe" Type="int" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNhanVien" />
+          </Key>
+          <Property Name="MaNhanVien" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TenNhanVien" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaLoaiNhanVien" Type="int" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="QueQuan" Type="nvarchar" MaxLength="50" />
+          <Property Name="CMND" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PhanLoaiNhanVien">
+          <Key>
+            <PropertyRef Name="MaLoaiNhanVien" />
+          </Key>
+          <Property Name="MaLoaiNhanVien" Type="int" Nullable="false" />
+          <Property Name="TenLoaiNhanVien" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PhanQuyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TenQuyen" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TaiKhoanDangNhap">
+          <Key>
+            <PropertyRef Name="TaiKhoan" />
+          </Key>
+          <Property Name="TaiKhoan" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="20" />
+          <Property Name="MaNhanVien" Type="int" />
+          <Property Name="MaQuyen" Type="int" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="NgaySinh" Type="date" />
+        </EntityType>
+        <EntityType Name="VeXe">
+          <Key>
+            <PropertyRef Name="MaVe" />
+          </Key>
+          <Property Name="MaVe" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MaChuyenDi" Type="int" />
+          <Property Name="MaNhanVien" Type="int" />
+          <Property Name="TenKhachHang" Type="nvarchar" MaxLength="20" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="20" />
+          <Property Name="NgayDat" Type="date" />
+          <Property Name="VitriGhe" Type="varchar" MaxLength="5" />
+          <Property Name="TinhTrang" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="XeKhach">
+          <Key>
+            <PropertyRef Name="MaXe" />
+          </Key>
+          <Property Name="MaXe" Type="int" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" />
+          <Property Name="BienSoXe" Type="varchar" MaxLength="10" />
+          <Property Name="SoGhe" Type="int" />
+        </EntityType>
+        <Association Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
+          <End Role="ChuyenDi" Type="OuBusModel.Store.ChuyenDi" Multiplicity="1" />
+          <End Role="BaoCaoDoanhThuChuyenDi" Type="OuBusModel.Store.BaoCaoDoanhThuChuyenDi" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenDi">
+              <PropertyRef Name="MaChuyenDi" />
+            </Principal>
+            <Dependent Role="BaoCaoDoanhThuChuyenDi">
+              <PropertyRef Name="MaChuyenDi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChuyenDi_XeKhach">
+          <End Role="XeKhach" Type="OuBusModel.Store.XeKhach" Multiplicity="0..1" />
+          <End Role="ChuyenDi" Type="OuBusModel.Store.ChuyenDi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XeKhach">
+              <PropertyRef Name="MaXe" />
+            </Principal>
+            <Dependent Role="ChuyenDi">
+              <PropertyRef Name="MaXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_PhanLoaiNhanVien">
+          <End Role="PhanLoaiNhanVien" Type="OuBusModel.Store.PhanLoaiNhanVien" Multiplicity="0..1" />
+          <End Role="NhanVien" Type="OuBusModel.Store.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhanLoaiNhanVien">
+              <PropertyRef Name="MaLoaiNhanVien" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaLoaiNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanDangNhap_NhanVien">
+          <End Role="NhanVien" Type="OuBusModel.Store.NhanVien" Multiplicity="0..1" />
+          <End Role="TaiKhoanDangNhap" Type="OuBusModel.Store.TaiKhoanDangNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="TaiKhoanDangNhap">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanDangNhap_PhanQuyen">
+          <End Role="PhanQuyen" Type="OuBusModel.Store.PhanQuyen" Multiplicity="0..1" />
+          <End Role="TaiKhoanDangNhap" Type="OuBusModel.Store.TaiKhoanDangNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhanQuyen">
+              <PropertyRef Name="MaQuyen" />
+            </Principal>
+            <Dependent Role="TaiKhoanDangNhap">
+              <PropertyRef Name="MaQuyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VeXe_ChuyenDi">
+          <End Role="ChuyenDi" Type="OuBusModel.Store.ChuyenDi" Multiplicity="0..1" />
+          <End Role="VeXe" Type="OuBusModel.Store.VeXe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenDi">
+              <PropertyRef Name="MaChuyenDi" />
+            </Principal>
+            <Dependent Role="VeXe">
+              <PropertyRef Name="MaChuyenDi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VeXe_NhanVien">
+          <End Role="NhanVien" Type="OuBusModel.Store.NhanVien" Multiplicity="0..1" />
+          <End Role="VeXe" Type="OuBusModel.Store.VeXe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="VeXe">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_XeKhach_NhanVien">
+          <End Role="NhanVien" Type="OuBusModel.Store.NhanVien" Multiplicity="0..1" />
+          <End Role="XeKhach" Type="OuBusModel.Store.XeKhach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="XeKhach">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="pr_TKDT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ngay1" Type="date" Mode="In" />
+          <Parameter Name="Ngay2" Type="date" Mode="In" />
+        </Function>
+        <Function Name="SuaThongTinChuyenDi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="machuyendi" Type="int" Mode="In" />
+          <Parameter Name="maxe" Type="int" Mode="In" />
+          <Parameter Name="ngay" Type="date" Mode="In" />
+          <Parameter Name="thoigian" Type="time" Mode="In" />
+          <Parameter Name="khoihanh" Type="nvarchar" Mode="In" />
+          <Parameter Name="ketthuc" Type="nvarchar" Mode="In" />
+          <Parameter Name="giave" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SuaThongTinNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="manv" Type="int" Mode="In" />
+          <Parameter Name="maloai" Type="int" Mode="In" />
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngaysinh" Type="date" Mode="In" />
+          <Parameter Name="quequan" Type="nvarchar" Mode="In" />
+          <Parameter Name="cmnd" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SuaThongTinVeXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mave" Type="int" Mode="In" />
+          <Parameter Name="manhanvien" Type="int" Mode="In" />
+          <Parameter Name="machuyendi" Type="int" Mode="In" />
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="sdt" Type="int" Mode="In" />
+          <Parameter Name="vitri" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ThemChuyenDi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="machuyendi" Type="int" Mode="In" />
+          <Parameter Name="maxe" Type="int" Mode="In" />
+          <Parameter Name="ngay" Type="date" Mode="In" />
+          <Parameter Name="thoigian" Type="time" Mode="In" />
+          <Parameter Name="khoihanh" Type="nvarchar" Mode="In" />
+          <Parameter Name="ketthuc" Type="nvarchar" Mode="In" />
+          <Parameter Name="giave" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ThemTaiKhoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="taikhoan" Type="varchar" Mode="In" />
+          <Parameter Name="matkhau" Type="varchar" Mode="In" />
+          <Parameter Name="manv" Type="int" Mode="In" />
+          <Parameter Name="maquyen" Type="int" Mode="In" />
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngaysinh" Type="date" Mode="In" />
+        </Function>
+        <Function Name="ThemThongTinNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="maloai" Type="int" Mode="In" />
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngaysinh" Type="date" Mode="In" />
+          <Parameter Name="quequan" Type="nvarchar" Mode="In" />
+          <Parameter Name="cmnd" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ThemVeXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="machuyendi" Type="int" Mode="In" />
+          <Parameter Name="manhanvien" Type="int" Mode="In" />
+          <Parameter Name="ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="sdt" Type="nvarchar" Mode="In" />
+          <Parameter Name="vitri" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="TimKiemCD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="TimKiemNVtheoMaLoaiNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="TimKiemNVtheoMaNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="TimKiemNVtheoTenNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="TimKiemVeXetheoMaCD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="TimKiemVeXetheoSDT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="TimKiemVeXetheoTenKH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nhap" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="XoaChuyenDi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaChuyenDi" Type="int" Mode="In" />
+        </Function>
+        <Function Name="XoaTaiKhoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="manhanvien" Type="int" Mode="In" />
+        </Function>
+        <Function Name="XoaThongTinNV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="manv" Type="int" Mode="In" />
+        </Function>
+        <Function Name="XoaVeXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mave" Type="int" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OuBusModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OuBusEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="BaoCaoDoanhThuChuyenDis" EntityType="OuBusModel.BaoCaoDoanhThuChuyenDi" />
+          <EntitySet Name="ChuyenDis" EntityType="OuBusModel.ChuyenDi" />
+          <EntitySet Name="NhanViens" EntityType="OuBusModel.NhanVien" />
+          <EntitySet Name="PhanLoaiNhanViens" EntityType="OuBusModel.PhanLoaiNhanVien" />
+          <EntitySet Name="PhanQuyens" EntityType="OuBusModel.PhanQuyen" />
+          <EntitySet Name="TaiKhoanDangNhaps" EntityType="OuBusModel.TaiKhoanDangNhap" />
+          <EntitySet Name="VeXes" EntityType="OuBusModel.VeXe" />
+          <EntitySet Name="XeKhaches" EntityType="OuBusModel.XeKhach" />
+          <AssociationSet Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" Association="OuBusModel.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
+            <End Role="ChuyenDi" EntitySet="ChuyenDis" />
+            <End Role="BaoCaoDoanhThuChuyenDi" EntitySet="BaoCaoDoanhThuChuyenDis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChuyenDi_XeKhach" Association="OuBusModel.FK_ChuyenDi_XeKhach">
+            <End Role="XeKhach" EntitySet="XeKhaches" />
+            <End Role="ChuyenDi" EntitySet="ChuyenDis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VeXe_ChuyenDi" Association="OuBusModel.FK_VeXe_ChuyenDi">
+            <End Role="ChuyenDi" EntitySet="ChuyenDis" />
+            <End Role="VeXe" EntitySet="VeXes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NhanVien_PhanLoaiNhanVien" Association="OuBusModel.FK_NhanVien_PhanLoaiNhanVien">
+            <End Role="PhanLoaiNhanVien" EntitySet="PhanLoaiNhanViens" />
+            <End Role="NhanVien" EntitySet="NhanViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanDangNhap_NhanVien" Association="OuBusModel.FK_TaiKhoanDangNhap_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VeXe_NhanVien" Association="OuBusModel.FK_VeXe_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="VeXe" EntitySet="VeXes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_XeKhach_NhanVien" Association="OuBusModel.FK_XeKhach_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="XeKhach" EntitySet="XeKhaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoanDangNhap_PhanQuyen" Association="OuBusModel.FK_TaiKhoanDangNhap_PhanQuyen">
+            <End Role="PhanQuyen" EntitySet="PhanQuyens" />
+            <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhaps" />
+          </AssociationSet>
+          <FunctionImport Name="pr_TKDT" ReturnType="Collection(OuBusModel.pr_TKDT_Result)">
+            <Parameter Name="Ngay1" Mode="In" Type="DateTime" />
+            <Parameter Name="Ngay2" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SuaThongTinChuyenDi">
+            <Parameter Name="machuyendi" Mode="In" Type="Int32" />
+            <Parameter Name="maxe" Mode="In" Type="Int32" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+            <Parameter Name="thoigian" Mode="In" Type="Time" />
+            <Parameter Name="khoihanh" Mode="In" Type="String" />
+            <Parameter Name="ketthuc" Mode="In" Type="String" />
+            <Parameter Name="giave" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SuaThongTinNV">
+            <Parameter Name="manv" Mode="In" Type="Int32" />
+            <Parameter Name="maloai" Mode="In" Type="Int32" />
+            <Parameter Name="ten" Mode="In" Type="String" />
+            <Parameter Name="ngaysinh" Mode="In" Type="DateTime" />
+            <Parameter Name="quequan" Mode="In" Type="String" />
+            <Parameter Name="cmnd" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SuaThongTinVeXe">
+            <Parameter Name="mave" Mode="In" Type="Int32" />
+            <Parameter Name="manhanvien" Mode="In" Type="Int32" />
+            <Parameter Name="machuyendi" Mode="In" Type="Int32" />
+            <Parameter Name="ten" Mode="In" Type="String" />
+            <Parameter Name="sdt" Mode="In" Type="Int32" />
+            <Parameter Name="vitri" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ThemChuyenDi">
+            <Parameter Name="machuyendi" Mode="In" Type="Int32" />
+            <Parameter Name="maxe" Mode="In" Type="Int32" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+            <Parameter Name="thoigian" Mode="In" Type="Time" />
+            <Parameter Name="khoihanh" Mode="In" Type="String" />
+            <Parameter Name="ketthuc" Mode="In" Type="String" />
+            <Parameter Name="giave" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ThemTaiKhoan">
+            <Parameter Name="taikhoan" Mode="In" Type="String" />
+            <Parameter Name="matkhau" Mode="In" Type="String" />
+            <Parameter Name="manv" Mode="In" Type="Int32" />
+            <Parameter Name="maquyen" Mode="In" Type="Int32" />
+            <Parameter Name="ten" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="ngaysinh" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="ThemThongTinNV">
+            <Parameter Name="maloai" Mode="In" Type="Int32" />
+            <Parameter Name="ten" Mode="In" Type="String" />
+            <Parameter Name="ngaysinh" Mode="In" Type="DateTime" />
+            <Parameter Name="quequan" Mode="In" Type="String" />
+            <Parameter Name="cmnd" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ThemVeXe">
+            <Parameter Name="machuyendi" Mode="In" Type="Int32" />
+            <Parameter Name="manhanvien" Mode="In" Type="Int32" />
+            <Parameter Name="ten" Mode="In" Type="String" />
+            <Parameter Name="sdt" Mode="In" Type="String" />
+            <Parameter Name="vitri" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemCD" ReturnType="Collection(OuBusModel.TimKiemCD_Result)">
+            <Parameter Name="nhap" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemNVtheoMaLoaiNV" ReturnType="Collection(OuBusModel.TimKiemNVtheoMaLoaiNV_Result)">
+            <Parameter Name="nhap" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemNVtheoMaNV" ReturnType="Collection(OuBusModel.TimKiemNVtheoMaNV_Result)">
+            <Parameter Name="nhap" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemNVtheoTenNV" ReturnType="Collection(OuBusModel.TimKiemNVtheoTenNV_Result)">
+            <Parameter Name="nhap" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemVeXetheoMaCD" ReturnType="Collection(OuBusModel.TimKiemVeXetheoMaCD_Result)">
+            <Parameter Name="nhap" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemVeXetheoSDT" ReturnType="Collection(OuBusModel.TimKiemVeXetheoSDT_Result)">
+            <Parameter Name="nhap" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TimKiemVeXetheoTenKH" ReturnType="Collection(OuBusModel.TimKiemVeXetheoTenKH_Result)">
+            <Parameter Name="nhap" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="XoaChuyenDi">
+            <Parameter Name="MaChuyenDi" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="XoaTaiKhoan">
+            <Parameter Name="manhanvien" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="XoaThongTinNV">
+            <Parameter Name="manv" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="XoaVeXe">
+            <Parameter Name="mave" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="BaoCaoDoanhThuChuyenDi">
+          <Key>
+            <PropertyRef Name="MaChuyenDi" />
+          </Key>
+          <Property Name="MaChuyenDi" Type="Int32" Nullable="false" />
+          <Property Name="DoanhThu" Type="Int32" />
+          <Property Name="SoVe" Type="Int32" />
+          <Property Name="Ngay" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ChuyenDi" Relationship="OuBusModel.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" FromRole="BaoCaoDoanhThuChuyenDi" ToRole="ChuyenDi" />
+        </EntityType>
+        <EntityType Name="ChuyenDi">
+          <Key>
+            <PropertyRef Name="MaChuyenDi" />
+          </Key>
+          <Property Name="MaChuyenDi" Type="Int32" Nullable="false" />
+          <Property Name="MaXe" Type="Int32" />
+          <Property Name="NgayKhoiHanh" Type="DateTime" Precision="0" />
+          <Property Name="ThoiGianKhoiHanh" Type="Time" Precision="7" />
+          <Property Name="DiemKhoiHanh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DiemKetThuc" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SoGheTrong" Type="Int32" />
+          <Property Name="SoGheDat" Type="Int32" />
+          <Property Name="GiaVe" Type="Int32" />
+          <NavigationProperty Name="BaoCaoDoanhThuChuyenDi" Relationship="OuBusModel.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" FromRole="ChuyenDi" ToRole="BaoCaoDoanhThuChuyenDi" />
+          <NavigationProperty Name="XeKhach" Relationship="OuBusModel.FK_ChuyenDi_XeKhach" FromRole="ChuyenDi" ToRole="XeKhach" />
+          <NavigationProperty Name="VeXes" Relationship="OuBusModel.FK_VeXe_ChuyenDi" FromRole="ChuyenDi" ToRole="VeXe" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNhanVien" />
+          </Key>
+          <Property Name="MaNhanVien" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNhanVien" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MaLoaiNhanVien" Type="Int32" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="QueQuan" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CMND" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PhanLoaiNhanVien" Relationship="OuBusModel.FK_NhanVien_PhanLoaiNhanVien" FromRole="NhanVien" ToRole="PhanLoaiNhanVien" />
+          <NavigationProperty Name="TaiKhoanDangNhaps" Relationship="OuBusModel.FK_TaiKhoanDangNhap_NhanVien" FromRole="NhanVien" ToRole="TaiKhoanDangNhap" />
+          <NavigationProperty Name="VeXes" Relationship="OuBusModel.FK_VeXe_NhanVien" FromRole="NhanVien" ToRole="VeXe" />
+          <NavigationProperty Name="XeKhaches" Relationship="OuBusModel.FK_XeKhach_NhanVien" FromRole="NhanVien" ToRole="XeKhach" />
+        </EntityType>
+        <EntityType Name="PhanLoaiNhanVien">
+          <Key>
+            <PropertyRef Name="MaLoaiNhanVien" />
+          </Key>
+          <Property Name="MaLoaiNhanVien" Type="Int32" Nullable="false" />
+          <Property Name="TenLoaiNhanVien" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="NhanViens" Relationship="OuBusModel.FK_NhanVien_PhanLoaiNhanVien" FromRole="PhanLoaiNhanVien" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="PhanQuyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TenQuyen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="TaiKhoanDangNhaps" Relationship="OuBusModel.FK_TaiKhoanDangNhap_PhanQuyen" FromRole="PhanQuyen" ToRole="TaiKhoanDangNhap" />
+        </EntityType>
+        <EntityType Name="TaiKhoanDangNhap">
+          <Key>
+            <PropertyRef Name="TaiKhoan" />
+          </Key>
+          <Property Name="TaiKhoan" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="MaNhanVien" Type="Int32" />
+          <Property Name="MaQuyen" Type="Int32" />
+          <Property Name="HoTen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="NhanVien" Relationship="OuBusModel.FK_TaiKhoanDangNhap_NhanVien" FromRole="TaiKhoanDangNhap" ToRole="NhanVien" />
+          <NavigationProperty Name="PhanQuyen" Relationship="OuBusModel.FK_TaiKhoanDangNhap_PhanQuyen" FromRole="TaiKhoanDangNhap" ToRole="PhanQuyen" />
+        </EntityType>
+        <EntityType Name="VeXe">
+          <Key>
+            <PropertyRef Name="MaVe" />
+          </Key>
+          <Property Name="MaVe" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MaChuyenDi" Type="Int32" />
+          <Property Name="MaNhanVien" Type="Int32" />
+          <Property Name="TenKhachHang" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="NgayDat" Type="DateTime" Precision="0" />
+          <Property Name="VitriGhe" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="TinhTrang" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ChuyenDi" Relationship="OuBusModel.FK_VeXe_ChuyenDi" FromRole="VeXe" ToRole="ChuyenDi" />
+          <NavigationProperty Name="NhanVien" Relationship="OuBusModel.FK_VeXe_NhanVien" FromRole="VeXe" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="XeKhach">
+          <Key>
+            <PropertyRef Name="MaXe" />
+          </Key>
+          <Property Name="MaXe" Type="Int32" Nullable="false" />
+          <Property Name="MaNhanVien" Type="Int32" />
+          <Property Name="BienSoXe" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="SoGhe" Type="Int32" />
+          <NavigationProperty Name="ChuyenDis" Relationship="OuBusModel.FK_ChuyenDi_XeKhach" FromRole="XeKhach" ToRole="ChuyenDi" />
+          <NavigationProperty Name="NhanVien" Relationship="OuBusModel.FK_XeKhach_NhanVien" FromRole="XeKhach" ToRole="NhanVien" />
+        </EntityType>
+        <Association Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
+          <End Role="ChuyenDi" Type="OuBusModel.ChuyenDi" Multiplicity="1" />
+          <End Role="BaoCaoDoanhThuChuyenDi" Type="OuBusModel.BaoCaoDoanhThuChuyenDi" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenDi">
+              <PropertyRef Name="MaChuyenDi" />
+            </Principal>
+            <Dependent Role="BaoCaoDoanhThuChuyenDi">
+              <PropertyRef Name="MaChuyenDi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChuyenDi_XeKhach">
+          <End Role="XeKhach" Type="OuBusModel.XeKhach" Multiplicity="0..1" />
+          <End Role="ChuyenDi" Type="OuBusModel.ChuyenDi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XeKhach">
+              <PropertyRef Name="MaXe" />
+            </Principal>
+            <Dependent Role="ChuyenDi">
+              <PropertyRef Name="MaXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VeXe_ChuyenDi">
+          <End Role="ChuyenDi" Type="OuBusModel.ChuyenDi" Multiplicity="0..1" />
+          <End Role="VeXe" Type="OuBusModel.VeXe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenDi">
+              <PropertyRef Name="MaChuyenDi" />
+            </Principal>
+            <Dependent Role="VeXe">
+              <PropertyRef Name="MaChuyenDi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_PhanLoaiNhanVien">
+          <End Role="PhanLoaiNhanVien" Type="OuBusModel.PhanLoaiNhanVien" Multiplicity="0..1" />
+          <End Role="NhanVien" Type="OuBusModel.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhanLoaiNhanVien">
+              <PropertyRef Name="MaLoaiNhanVien" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="MaLoaiNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanDangNhap_NhanVien">
+          <End Role="NhanVien" Type="OuBusModel.NhanVien" Multiplicity="0..1" />
+          <End Role="TaiKhoanDangNhap" Type="OuBusModel.TaiKhoanDangNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="TaiKhoanDangNhap">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VeXe_NhanVien">
+          <End Role="NhanVien" Type="OuBusModel.NhanVien" Multiplicity="0..1" />
+          <End Role="VeXe" Type="OuBusModel.VeXe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="VeXe">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_XeKhach_NhanVien">
+          <End Role="NhanVien" Type="OuBusModel.NhanVien" Multiplicity="0..1" />
+          <End Role="XeKhach" Type="OuBusModel.XeKhach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="XeKhach">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoanDangNhap_PhanQuyen">
+          <End Role="PhanQuyen" Type="OuBusModel.PhanQuyen" Multiplicity="0..1" />
+          <End Role="TaiKhoanDangNhap" Type="OuBusModel.TaiKhoanDangNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhanQuyen">
+              <PropertyRef Name="MaQuyen" />
+            </Principal>
+            <Dependent Role="TaiKhoanDangNhap">
+              <PropertyRef Name="MaQuyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="pr_TKDT_Result">
+          <Property Type="Int32" Name="MaChuyenDi" Nullable="false" />
+          <Property Type="Int32" Name="MaXe" Nullable="true" />
+          <Property Type="DateTime" Name="NgayKhoiHanh" Nullable="true" />
+          <Property Type="Time" Name="ThoiGianKhoiHanh" Nullable="true" />
+          <Property Type="String" Name="DiemKhoiHanh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DiemKetThuc" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SoGheTrong" Nullable="true" />
+          <Property Type="Int32" Name="SoGheDat" Nullable="true" />
+          <Property Type="Int32" Name="GiaVe" Nullable="true" />
+          <Property Type="Int32" Name="Tong_Doanh_Thu" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="TimKiemCD_Result">
+          <Property Type="Int32" Name="MaChuyenDi" Nullable="false" />
+          <Property Type="Int32" Name="MaXe" Nullable="true" />
+          <Property Type="DateTime" Name="NgayKhoiHanh" Nullable="true" />
+          <Property Type="Time" Name="ThoiGianKhoiHanh" Nullable="true" />
+          <Property Type="String" Name="DiemKhoiHanh" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DiemKetThuc" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SoGheTrong" Nullable="true" />
+          <Property Type="Int32" Name="SoGheDat" Nullable="true" />
+          <Property Type="Int32" Name="GiaVe" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="TimKiemNVtheoMaLoaiNV_Result">
+          <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+          <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="MaLoaiNhanVien" Nullable="true" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+          <Property Type="String" Name="QueQuan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CMND" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="TimKiemNVtheoMaNV_Result">
+          <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+          <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="MaLoaiNhanVien" Nullable="true" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+          <Property Type="String" Name="QueQuan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CMND" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="TimKiemNVtheoTenNV_Result">
+          <Property Type="Int32" Name="MaNhanVien" Nullable="false" />
+          <Property Type="String" Name="TenNhanVien" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="MaLoaiNhanVien" Nullable="true" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+          <Property Type="String" Name="QueQuan" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CMND" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="TimKiemVeXetheoMaCD_Result">
+          <Property Type="Int32" Name="MaVe" Nullable="false" />
+          <Property Type="Int32" Name="MaChuyenDi" Nullable="true" />
+          <Property Type="Int32" Name="MaNhanVien" Nullable="true" />
+          <Property Type="String" Name="TenKhachHang" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="NgayDat" Nullable="true" />
+          <Property Type="String" Name="VitriGhe" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="TinhTrang" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="TimKiemVeXetheoSDT_Result">
+          <Property Type="Int32" Name="MaVe" Nullable="false" />
+          <Property Type="Int32" Name="MaChuyenDi" Nullable="true" />
+          <Property Type="Int32" Name="MaNhanVien" Nullable="true" />
+          <Property Type="String" Name="TenKhachHang" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="NgayDat" Nullable="true" />
+          <Property Type="String" Name="VitriGhe" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="TinhTrang" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="TimKiemVeXetheoTenKH_Result">
+          <Property Type="Int32" Name="MaVe" Nullable="false" />
+          <Property Type="Int32" Name="MaChuyenDi" Nullable="true" />
+          <Property Type="Int32" Name="MaNhanVien" Nullable="true" />
+          <Property Type="String" Name="TenKhachHang" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="SoDienThoai" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="NgayDat" Nullable="true" />
+          <Property Type="String" Name="VitriGhe" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="TinhTrang" Nullable="true" MaxLength="10" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OuBusModelStoreContainer" CdmEntityContainer="OuBusEntities1">
+          <EntitySetMapping Name="BaoCaoDoanhThuChuyenDis">
+            <EntityTypeMapping TypeName="OuBusModel.BaoCaoDoanhThuChuyenDi">
+              <MappingFragment StoreEntitySet="BaoCaoDoanhThuChuyenDi">
+                <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+                <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
+                <ScalarProperty Name="SoVe" ColumnName="SoVe" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChuyenDis">
+            <EntityTypeMapping TypeName="OuBusModel.ChuyenDi">
+              <MappingFragment StoreEntitySet="ChuyenDi">
+                <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+                <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+                <ScalarProperty Name="NgayKhoiHanh" ColumnName="NgayKhoiHanh" />
+                <ScalarProperty Name="ThoiGianKhoiHanh" ColumnName="ThoiGianKhoiHanh" />
+                <ScalarProperty Name="DiemKhoiHanh" ColumnName="DiemKhoiHanh" />
+                <ScalarProperty Name="DiemKetThuc" ColumnName="DiemKetThuc" />
+                <ScalarProperty Name="SoGheTrong" ColumnName="SoGheTrong" />
+                <ScalarProperty Name="SoGheDat" ColumnName="SoGheDat" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhanViens">
+            <EntityTypeMapping TypeName="OuBusModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+                <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhanLoaiNhanViens">
+            <EntityTypeMapping TypeName="OuBusModel.PhanLoaiNhanVien">
+              <MappingFragment StoreEntitySet="PhanLoaiNhanVien">
+                <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+                <ScalarProperty Name="TenLoaiNhanVien" ColumnName="TenLoaiNhanVien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhanQuyens">
+            <EntityTypeMapping TypeName="OuBusModel.PhanQuyen">
+              <MappingFragment StoreEntitySet="PhanQuyen">
+                <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+                <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoanDangNhaps">
+            <EntityTypeMapping TypeName="OuBusModel.TaiKhoanDangNhap">
+              <MappingFragment StoreEntitySet="TaiKhoanDangNhap">
+                <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VeXes">
+            <EntityTypeMapping TypeName="OuBusModel.VeXe">
+              <MappingFragment StoreEntitySet="VeXe">
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+                <ScalarProperty Name="VitriGhe" ColumnName="VitriGhe" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XeKhaches">
+            <EntityTypeMapping TypeName="OuBusModel.XeKhach">
+              <MappingFragment StoreEntitySet="XeKhach">
+                <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="BienSoXe" ColumnName="BienSoXe" />
+                <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pr_TKDT" FunctionName="OuBusModel.Store.pr_TKDT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OuBusModel.pr_TKDT_Result">
+                <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+                <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+                <ScalarProperty Name="NgayKhoiHanh" ColumnName="NgayKhoiHanh" />
+                <ScalarProperty Name="ThoiGianKhoiHanh" ColumnName="ThoiGianKhoiHanh" />
+                <ScalarProperty Name="DiemKhoiHanh" ColumnName="DiemKhoiHanh" />
+                <ScalarProperty Name="DiemKetThuc" ColumnName="DiemKetThuc" />
+                <ScalarProperty Name="SoGheTrong" ColumnName="SoGheTrong" />
+                <ScalarProperty Name="SoGheDat" ColumnName="SoGheDat" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="Tong_Doanh_Thu" ColumnName="Tong Doanh Thu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SuaThongTinChuyenDi" FunctionName="OuBusModel.Store.SuaThongTinChuyenDi" />
+          <FunctionImportMapping FunctionImportName="SuaThongTinNV" FunctionName="OuBusModel.Store.SuaThongTinNV" />
+          <FunctionImportMapping FunctionImportName="SuaThongTinVeXe" FunctionName="OuBusModel.Store.SuaThongTinVeXe" />
+          <FunctionImportMapping FunctionImportName="ThemChuyenDi" FunctionName="OuBusModel.Store.ThemChuyenDi" />
+          <FunctionImportMapping FunctionImportName="ThemTaiKhoan" FunctionName="OuBusModel.Store.ThemTaiKhoan" />
+          <FunctionImportMapping FunctionImportName="ThemThongTinNV" FunctionName="OuBusModel.Store.ThemThongTinNV" />
+          <FunctionImportMapping FunctionImportName="ThemVeXe" FunctionName="OuBusModel.Store.ThemVeXe" />
+          <FunctionImportMapping FunctionImportName="TimKiemCD" FunctionName="OuBusModel.Store.TimKiemCD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OuBusModel.TimKiemCD_Result">
+                <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+                <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+                <ScalarProperty Name="NgayKhoiHanh" ColumnName="NgayKhoiHanh" />
+                <ScalarProperty Name="ThoiGianKhoiHanh" ColumnName="ThoiGianKhoiHanh" />
+                <ScalarProperty Name="DiemKhoiHanh" ColumnName="DiemKhoiHanh" />
+                <ScalarProperty Name="DiemKetThuc" ColumnName="DiemKetThuc" />
+                <ScalarProperty Name="SoGheTrong" ColumnName="SoGheTrong" />
+                <ScalarProperty Name="SoGheDat" ColumnName="SoGheDat" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemNVtheoMaLoaiNV" FunctionName="OuBusModel.Store.TimKiemNVtheoMaLoaiNV">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OuBusModel.TimKiemNVtheoMaLoaiNV_Result">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+                <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemNVtheoMaNV" FunctionName="OuBusModel.Store.TimKiemNVtheoMaNV">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OuBusModel.TimKiemNVtheoMaNV_Result">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+                <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemNVtheoTenNV" FunctionName="OuBusModel.Store.TimKiemNVtheoTenNV">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OuBusModel.TimKiemNVtheoTenNV_Result">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+                <ScalarProperty Name="MaLoaiNhanVien" ColumnName="MaLoaiNhanVien" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemVeXetheoMaCD" FunctionName="OuBusModel.Store.TimKiemVeXetheoMaCD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OuBusModel.TimKiemVeXetheoMaCD_Result">
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+                <ScalarProperty Name="VitriGhe" ColumnName="VitriGhe" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemVeXetheoSDT" FunctionName="OuBusModel.Store.TimKiemVeXetheoSDT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OuBusModel.TimKiemVeXetheoSDT_Result">
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+                <ScalarProperty Name="VitriGhe" ColumnName="VitriGhe" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TimKiemVeXetheoTenKH" FunctionName="OuBusModel.Store.TimKiemVeXetheoTenKH">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OuBusModel.TimKiemVeXetheoTenKH_Result">
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+                <ScalarProperty Name="VitriGhe" ColumnName="VitriGhe" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="XoaChuyenDi" FunctionName="OuBusModel.Store.XoaChuyenDi" />
+          <FunctionImportMapping FunctionImportName="XoaTaiKhoan" FunctionName="OuBusModel.Store.XoaTaiKhoan" />
+          <FunctionImportMapping FunctionImportName="XoaThongTinNV" FunctionName="OuBusModel.Store.XoaThongTinNV" />
+          <FunctionImportMapping FunctionImportName="XoaVeXe" FunctionName="OuBusModel.Store.XoaVeXe" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
