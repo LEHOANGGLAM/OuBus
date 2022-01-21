@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Core.Objects.DataClasses;
 
 namespace OUBus.DAO
 {
@@ -54,12 +56,12 @@ namespace OUBus.DAO
         }
         public void InsertNewEmployee(NhanVien nv)
         {
-            db.ThemThongTinNV(nv.MaLoaiNhanVien, nv.TenNhanVien, nv.NgaySinh, nv.QueQuan, nv.CMND);
+            db.ThemThongTinNV(nv.MaLoaiNhanVien, nv.TenNhanVien, nv.NgaySinh, nv.QueQuan, int.Parse(nv.CMND));
             db.SaveChanges();
         }
         public void UpdateEmployee(NhanVien nv)
         {
-            db.SuaThongTinNV(nv.MaNhanVien, nv.MaLoaiNhanVien, nv.TenNhanVien, nv.NgaySinh, nv.QueQuan, nv.CMND);
+            db.SuaThongTinNV(nv.MaNhanVien, nv.MaLoaiNhanVien, nv.TenNhanVien, nv.NgaySinh, nv.QueQuan, int.Parse(nv.CMND));
             db.SaveChanges();
         }
         public dynamic DSLoaiNV()
