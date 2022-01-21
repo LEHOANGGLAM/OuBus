@@ -1,249 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="OuBusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="BaoCaoDoanhThuChuyenDi">
-    <Key>
-      <PropertyRef Name="MaChuyenDi" />
-    </Key>
-    <Property Name="MaChuyenDi" Type="Int32" Nullable="false" />
-    <Property Name="DoanhThu" Type="Int32" />
-    <Property Name="SoVe" Type="Int32" />
-    <Property Name="Ngay" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ChuyenDi" Relationship="Self.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" FromRole="BaoCaoDoanhThuChuyenDi" ToRole="ChuyenDi" />
-  </EntityType>
-  <EntityType Name="ChuyenDi">
-    <Key>
-      <PropertyRef Name="MaChuyenDi" />
-    </Key>
-    <Property Name="MaChuyenDi" Type="Int32" Nullable="false" />
-    <Property Name="MaXe" Type="Int32" />
-    <Property Name="NgayKhoiHanh" Type="DateTime" Precision="0" />
-    <Property Name="ThoiGianKhoiHanh" Type="Time" Precision="7" />
-    <Property Name="DiemKhoiHanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="DiemKetThuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SoGheTrong" Type="Int32" />
-    <Property Name="SoGheDat" Type="Int32" />
-    <Property Name="GiaVe" Type="Int32" />
-    <NavigationProperty Name="BaoCaoDoanhThuChuyenDi" Relationship="Self.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" FromRole="ChuyenDi" ToRole="BaoCaoDoanhThuChuyenDi" />
-    <NavigationProperty Name="XeKhach" Relationship="Self.FK_ChuyenDi_XeKhach" FromRole="ChuyenDi" ToRole="XeKhach" />
-    <NavigationProperty Name="VeXes" Relationship="Self.FK_VeXe_ChuyenDi" FromRole="ChuyenDi" ToRole="VeXe" />
-  </EntityType>
-  <EntityType Name="NhanVien">
-    <Key>
-      <PropertyRef Name="MaNhanVien" />
-    </Key>
-    <Property Name="MaNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MaLoaiNhanVien" Type="Int32" />
-    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
-    <Property Name="QueQuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PhanLoaiNhanVien" Relationship="Self.FK_NhanVien_PhanLoaiNhanVien" FromRole="NhanVien" ToRole="PhanLoaiNhanVien" />
-    <NavigationProperty Name="TaiKhoanDangNhaps" Relationship="Self.FK_TaiKhoanDangNhap_NhanVien" FromRole="NhanVien" ToRole="TaiKhoanDangNhap" />
-    <NavigationProperty Name="VeXes" Relationship="Self.FK_VeXe_NhanVien" FromRole="NhanVien" ToRole="VeXe" />
-    <NavigationProperty Name="XeKhaches" Relationship="Self.FK_XeKhach_NhanVien" FromRole="NhanVien" ToRole="XeKhach" />
-  </EntityType>
-  <EntityType Name="PhanLoaiNhanVien">
-    <Key>
-      <PropertyRef Name="MaLoaiNhanVien" />
-    </Key>
-    <Property Name="MaLoaiNhanVien" Type="Int32" Nullable="false" />
-    <Property Name="TenLoaiNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_PhanLoaiNhanVien" FromRole="PhanLoaiNhanVien" ToRole="NhanVien" />
-  </EntityType>
-  <EntityType Name="PhanQuyen">
-    <Key>
-      <PropertyRef Name="MaQuyen" />
-    </Key>
-    <Property Name="MaQuyen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="TaiKhoanDangNhaps" Relationship="Self.FK_TaiKhoanDangNhap_PhanQuyen" FromRole="PhanQuyen" ToRole="TaiKhoanDangNhap" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="TaiKhoanDangNhap">
-    <Key>
-      <PropertyRef Name="TaiKhoan" />
-    </Key>
-    <Property Name="TaiKhoan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="MaNhanVien" Type="Int32" />
-    <Property Name="MaQuyen" Type="Int32" />
-    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="NhanVien" Relationship="Self.FK_TaiKhoanDangNhap_NhanVien" FromRole="TaiKhoanDangNhap" ToRole="NhanVien" />
-    <NavigationProperty Name="PhanQuyen" Relationship="Self.FK_TaiKhoanDangNhap_PhanQuyen" FromRole="TaiKhoanDangNhap" ToRole="PhanQuyen" />
-  </EntityType>
-  <EntityType Name="VeXe">
-    <Key>
-      <PropertyRef Name="MaVe" />
-    </Key>
-    <Property Name="MaVe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MaChuyenDi" Type="Int32" />
-    <Property Name="MaNhanVien" Type="Int32" />
-    <Property Name="TenKhachHang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="NgayDat" Type="DateTime" Precision="0" />
-    <Property Name="VitriGhe" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-    <Property Name="TinhTrang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="XeKhach">
-    <Key>
-      <PropertyRef Name="MaXe" />
-    </Key>
-    <Property Name="MaXe" Type="Int32" Nullable="false" />
-    <Property Name="MaNhanVien" Type="Int32" />
-    <Property Name="BienSoXe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="SoGhe" Type="Int32" />
-    <NavigationProperty Name="ChuyenDis" Relationship="Self.FK_ChuyenDi_XeKhach" FromRole="XeKhach" ToRole="ChuyenDi" />
-    <NavigationProperty Name="NhanVien" Relationship="Self.FK_XeKhach_NhanVien" FromRole="XeKhach" ToRole="NhanVien" />
-  </EntityType>
-  <Association Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
-    <End Role="ChuyenDi" Type="Self.ChuyenDi" Multiplicity="1" />
-    <End Role="BaoCaoDoanhThuChuyenDi" Type="Self.BaoCaoDoanhThuChuyenDi" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="ChuyenDi">
-        <PropertyRef Name="MaChuyenDi" />
-      </Principal>
-      <Dependent Role="BaoCaoDoanhThuChuyenDi">
-        <PropertyRef Name="MaChuyenDi" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ChuyenDi_XeKhach">
-    <End Role="XeKhach" Type="Self.XeKhach" Multiplicity="0..1" />
-    <End Role="ChuyenDi" Type="Self.ChuyenDi" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="XeKhach">
-        <PropertyRef Name="MaXe" />
-      </Principal>
-      <Dependent Role="ChuyenDi">
-        <PropertyRef Name="MaXe" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_VeXe_ChuyenDi">
-    <End Role="ChuyenDi" Type="Self.ChuyenDi" Multiplicity="0..1" />
-    <End Role="VeXe" Type="Self.VeXe" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ChuyenDi">
-        <PropertyRef Name="MaChuyenDi" />
-      </Principal>
-      <Dependent Role="VeXe">
-        <PropertyRef Name="MaChuyenDi" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_NhanVien_PhanLoaiNhanVien">
-    <End Role="PhanLoaiNhanVien" Type="Self.PhanLoaiNhanVien" Multiplicity="0..1" />
-    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PhanLoaiNhanVien">
-        <PropertyRef Name="MaLoaiNhanVien" />
-      </Principal>
-      <Dependent Role="NhanVien">
-        <PropertyRef Name="MaLoaiNhanVien" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TaiKhoanDangNhap_NhanVien">
-    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-    <End Role="TaiKhoanDangNhap" Type="Self.TaiKhoanDangNhap" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NhanVien">
-        <PropertyRef Name="MaNhanVien" />
-      </Principal>
-      <Dependent Role="TaiKhoanDangNhap">
-        <PropertyRef Name="MaNhanVien" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_VeXe_NhanVien">
-    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-    <End Role="VeXe" Type="Self.VeXe" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NhanVien">
-        <PropertyRef Name="MaNhanVien" />
-      </Principal>
-      <Dependent Role="VeXe">
-        <PropertyRef Name="MaNhanVien" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_XeKhach_NhanVien">
-    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-    <End Role="XeKhach" Type="Self.XeKhach" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NhanVien">
-        <PropertyRef Name="MaNhanVien" />
-      </Principal>
-      <Dependent Role="XeKhach">
-        <PropertyRef Name="MaNhanVien" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TaiKhoanDangNhap_PhanQuyen">
-    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="0..1" />
-    <End Role="TaiKhoanDangNhap" Type="Self.TaiKhoanDangNhap" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PhanQuyen">
-        <PropertyRef Name="MaQuyen" />
-      </Principal>
-      <Dependent Role="TaiKhoanDangNhap">
-        <PropertyRef Name="MaQuyen" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="OuBusEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="BaoCaoDoanhThuChuyenDis" EntityType="Self.BaoCaoDoanhThuChuyenDi" />
-    <EntitySet Name="ChuyenDis" EntityType="Self.ChuyenDi" />
-    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
-    <EntitySet Name="PhanLoaiNhanViens" EntityType="Self.PhanLoaiNhanVien" />
-    <EntitySet Name="PhanQuyens" EntityType="Self.PhanQuyen" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="TaiKhoanDangNhaps" EntityType="Self.TaiKhoanDangNhap" />
-    <EntitySet Name="VeXes" EntityType="Self.VeXe" />
-    <EntitySet Name="XeKhaches" EntityType="Self.XeKhach" />
-    <AssociationSet Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" Association="Self.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
+<Schema Namespace="OuBusModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="OuBusEntities1" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="BaoCaoDoanhThuChuyenDis" EntityType="OuBusModel.BaoCaoDoanhThuChuyenDi" />
+    <EntitySet Name="ChuyenDis" EntityType="OuBusModel.ChuyenDi" />
+    <EntitySet Name="NhanViens" EntityType="OuBusModel.NhanVien" />
+    <EntitySet Name="PhanLoaiNhanViens" EntityType="OuBusModel.PhanLoaiNhanVien" />
+    <EntitySet Name="PhanQuyens" EntityType="OuBusModel.PhanQuyen" />
+    <EntitySet Name="TaiKhoanDangNhaps" EntityType="OuBusModel.TaiKhoanDangNhap" />
+    <EntitySet Name="VeXes" EntityType="OuBusModel.VeXe" />
+    <EntitySet Name="XeKhaches" EntityType="OuBusModel.XeKhach" />
+    <AssociationSet Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" Association="OuBusModel.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
       <End Role="ChuyenDi" EntitySet="ChuyenDis" />
       <End Role="BaoCaoDoanhThuChuyenDi" EntitySet="BaoCaoDoanhThuChuyenDis" />
     </AssociationSet>
-    <AssociationSet Name="FK_ChuyenDi_XeKhach" Association="Self.FK_ChuyenDi_XeKhach">
+    <AssociationSet Name="FK_ChuyenDi_XeKhach" Association="OuBusModel.FK_ChuyenDi_XeKhach">
       <End Role="XeKhach" EntitySet="XeKhaches" />
       <End Role="ChuyenDi" EntitySet="ChuyenDis" />
     </AssociationSet>
-    <AssociationSet Name="FK_VeXe_ChuyenDi" Association="Self.FK_VeXe_ChuyenDi">
+    <AssociationSet Name="FK_VeXe_ChuyenDi" Association="OuBusModel.FK_VeXe_ChuyenDi">
       <End Role="ChuyenDi" EntitySet="ChuyenDis" />
       <End Role="VeXe" EntitySet="VeXes" />
     </AssociationSet>
-    <AssociationSet Name="FK_NhanVien_PhanLoaiNhanVien" Association="Self.FK_NhanVien_PhanLoaiNhanVien">
+    <AssociationSet Name="FK_NhanVien_PhanLoaiNhanVien" Association="OuBusModel.FK_NhanVien_PhanLoaiNhanVien">
       <End Role="PhanLoaiNhanVien" EntitySet="PhanLoaiNhanViens" />
       <End Role="NhanVien" EntitySet="NhanViens" />
     </AssociationSet>
-    <AssociationSet Name="FK_TaiKhoanDangNhap_NhanVien" Association="Self.FK_TaiKhoanDangNhap_NhanVien">
+    <AssociationSet Name="FK_TaiKhoanDangNhap_NhanVien" Association="OuBusModel.FK_TaiKhoanDangNhap_NhanVien">
       <End Role="NhanVien" EntitySet="NhanViens" />
       <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhaps" />
     </AssociationSet>
-    <AssociationSet Name="FK_VeXe_NhanVien" Association="Self.FK_VeXe_NhanVien">
+    <AssociationSet Name="FK_VeXe_NhanVien" Association="OuBusModel.FK_VeXe_NhanVien">
       <End Role="NhanVien" EntitySet="NhanViens" />
       <End Role="VeXe" EntitySet="VeXes" />
     </AssociationSet>
-    <AssociationSet Name="FK_XeKhach_NhanVien" Association="Self.FK_XeKhach_NhanVien">
+    <AssociationSet Name="FK_XeKhach_NhanVien" Association="OuBusModel.FK_XeKhach_NhanVien">
       <End Role="NhanVien" EntitySet="NhanViens" />
       <End Role="XeKhach" EntitySet="XeKhaches" />
     </AssociationSet>
-    <AssociationSet Name="FK_TaiKhoanDangNhap_PhanQuyen" Association="Self.FK_TaiKhoanDangNhap_PhanQuyen">
+    <AssociationSet Name="FK_TaiKhoanDangNhap_PhanQuyen" Association="OuBusModel.FK_TaiKhoanDangNhap_PhanQuyen">
       <End Role="PhanQuyen" EntitySet="PhanQuyens" />
       <End Role="TaiKhoanDangNhap" EntitySet="TaiKhoanDangNhaps" />
     </AssociationSet>
+    <FunctionImport Name="pr_TKDT" ReturnType="Collection(OuBusModel.pr_TKDT_Result)">
+      <Parameter Name="Ngay1" Mode="In" Type="DateTime" />
+      <Parameter Name="Ngay2" Mode="In" Type="DateTime" />
+    </FunctionImport>
     <FunctionImport Name="SuaThongTinChuyenDi">
       <Parameter Name="machuyendi" Mode="In" Type="Int32" />
       <Parameter Name="maxe" Mode="In" Type="Int32" />
@@ -301,26 +102,14 @@
       <Parameter Name="sdt" Mode="In" Type="String" />
       <Parameter Name="vitri" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="XoaChuyenDi">
-      <Parameter Name="MaChuyenDi" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="XoaTaiKhoan">
-      <Parameter Name="manhanvien" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="XoaThongTinNV">
-      <Parameter Name="manv" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="XoaVeXe">
-      <Parameter Name="mave" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="TimKiemCD" ReturnType="Collection(OuBusModel.TimKiemCD_Result)">
       <Parameter Name="nhap" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="TimKiemNVtheoMaLoaiNV" ReturnType="Collection(OuBusModel.TimKiemNVtheoMaLoaiNV_Result)">
-      <Parameter Name="nhap" Mode="In" Type="Int32" />
+      <Parameter Name="nhap" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="TimKiemNVtheoMaNV" ReturnType="Collection(OuBusModel.TimKiemNVtheoMaNV_Result)">
-      <Parameter Name="nhap" Mode="In" Type="Int32" />
+      <Parameter Name="nhap" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="TimKiemNVtheoTenNV" ReturnType="Collection(OuBusModel.TimKiemNVtheoTenNV_Result)">
       <Parameter Name="nhap" Mode="In" Type="String" />
@@ -334,7 +123,225 @@
     <FunctionImport Name="TimKiemVeXetheoTenKH" ReturnType="Collection(OuBusModel.TimKiemVeXetheoTenKH_Result)">
       <Parameter Name="nhap" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="XoaChuyenDi">
+      <Parameter Name="MaChuyenDi" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="XoaTaiKhoan">
+      <Parameter Name="manhanvien" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="XoaThongTinNV">
+      <Parameter Name="manv" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="XoaVeXe">
+      <Parameter Name="mave" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <EntityType Name="BaoCaoDoanhThuChuyenDi">
+    <Key>
+      <PropertyRef Name="MaChuyenDi" />
+    </Key>
+    <Property Name="MaChuyenDi" Type="Int32" Nullable="false" />
+    <Property Name="DoanhThu" Type="Int32" />
+    <Property Name="SoVe" Type="Int32" />
+    <Property Name="Ngay" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ChuyenDi" Relationship="OuBusModel.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" FromRole="BaoCaoDoanhThuChuyenDi" ToRole="ChuyenDi" />
+  </EntityType>
+  <EntityType Name="ChuyenDi">
+    <Key>
+      <PropertyRef Name="MaChuyenDi" />
+    </Key>
+    <Property Name="MaChuyenDi" Type="Int32" Nullable="false" />
+    <Property Name="MaXe" Type="Int32" />
+    <Property Name="NgayKhoiHanh" Type="DateTime" Precision="0" />
+    <Property Name="ThoiGianKhoiHanh" Type="Time" Precision="7" />
+    <Property Name="DiemKhoiHanh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DiemKetThuc" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SoGheTrong" Type="Int32" />
+    <Property Name="SoGheDat" Type="Int32" />
+    <Property Name="GiaVe" Type="Int32" />
+    <NavigationProperty Name="BaoCaoDoanhThuChuyenDi" Relationship="OuBusModel.FK_BaoCaoDoanhThuChuyenDi_ChuyenDi" FromRole="ChuyenDi" ToRole="BaoCaoDoanhThuChuyenDi" />
+    <NavigationProperty Name="XeKhach" Relationship="OuBusModel.FK_ChuyenDi_XeKhach" FromRole="ChuyenDi" ToRole="XeKhach" />
+    <NavigationProperty Name="VeXes" Relationship="OuBusModel.FK_VeXe_ChuyenDi" FromRole="ChuyenDi" ToRole="VeXe" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="MaNhanVien" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhanVien" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MaLoaiNhanVien" Type="Int32" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="QueQuan" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CMND" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="PhanLoaiNhanVien" Relationship="OuBusModel.FK_NhanVien_PhanLoaiNhanVien" FromRole="NhanVien" ToRole="PhanLoaiNhanVien" />
+    <NavigationProperty Name="TaiKhoanDangNhaps" Relationship="OuBusModel.FK_TaiKhoanDangNhap_NhanVien" FromRole="NhanVien" ToRole="TaiKhoanDangNhap" />
+    <NavigationProperty Name="VeXes" Relationship="OuBusModel.FK_VeXe_NhanVien" FromRole="NhanVien" ToRole="VeXe" />
+    <NavigationProperty Name="XeKhaches" Relationship="OuBusModel.FK_XeKhach_NhanVien" FromRole="NhanVien" ToRole="XeKhach" />
+  </EntityType>
+  <EntityType Name="PhanLoaiNhanVien">
+    <Key>
+      <PropertyRef Name="MaLoaiNhanVien" />
+    </Key>
+    <Property Name="MaLoaiNhanVien" Type="Int32" Nullable="false" />
+    <Property Name="TenLoaiNhanVien" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="NhanViens" Relationship="OuBusModel.FK_NhanVien_PhanLoaiNhanVien" FromRole="PhanLoaiNhanVien" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="MaQuyen" />
+    </Key>
+    <Property Name="MaQuyen" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TenQuyen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="TaiKhoanDangNhaps" Relationship="OuBusModel.FK_TaiKhoanDangNhap_PhanQuyen" FromRole="PhanQuyen" ToRole="TaiKhoanDangNhap" />
+  </EntityType>
+  <EntityType Name="TaiKhoanDangNhap">
+    <Key>
+      <PropertyRef Name="TaiKhoan" />
+    </Key>
+    <Property Name="TaiKhoan" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="MaNhanVien" Type="Int32" />
+    <Property Name="MaQuyen" Type="Int32" />
+    <Property Name="HoTen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="NhanVien" Relationship="OuBusModel.FK_TaiKhoanDangNhap_NhanVien" FromRole="TaiKhoanDangNhap" ToRole="NhanVien" />
+    <NavigationProperty Name="PhanQuyen" Relationship="OuBusModel.FK_TaiKhoanDangNhap_PhanQuyen" FromRole="TaiKhoanDangNhap" ToRole="PhanQuyen" />
+  </EntityType>
+  <EntityType Name="VeXe">
+    <Key>
+      <PropertyRef Name="MaVe" />
+    </Key>
+    <Property Name="MaVe" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="MaChuyenDi" Type="Int32" />
+    <Property Name="MaNhanVien" Type="Int32" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="NgayDat" Type="DateTime" Precision="0" />
+    <Property Name="VitriGhe" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="TinhTrang" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ChuyenDi" Relationship="OuBusModel.FK_VeXe_ChuyenDi" FromRole="VeXe" ToRole="ChuyenDi" />
+    <NavigationProperty Name="NhanVien" Relationship="OuBusModel.FK_VeXe_NhanVien" FromRole="VeXe" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="XeKhach">
+    <Key>
+      <PropertyRef Name="MaXe" />
+    </Key>
+    <Property Name="MaXe" Type="Int32" Nullable="false" />
+    <Property Name="MaNhanVien" Type="Int32" />
+    <Property Name="BienSoXe" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="SoGhe" Type="Int32" />
+    <NavigationProperty Name="ChuyenDis" Relationship="OuBusModel.FK_ChuyenDi_XeKhach" FromRole="XeKhach" ToRole="ChuyenDi" />
+    <NavigationProperty Name="NhanVien" Relationship="OuBusModel.FK_XeKhach_NhanVien" FromRole="XeKhach" ToRole="NhanVien" />
+  </EntityType>
+  <Association Name="FK_BaoCaoDoanhThuChuyenDi_ChuyenDi">
+    <End Role="ChuyenDi" Type="OuBusModel.ChuyenDi" Multiplicity="1" />
+    <End Role="BaoCaoDoanhThuChuyenDi" Type="OuBusModel.BaoCaoDoanhThuChuyenDi" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenDi">
+        <PropertyRef Name="MaChuyenDi" />
+      </Principal>
+      <Dependent Role="BaoCaoDoanhThuChuyenDi">
+        <PropertyRef Name="MaChuyenDi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChuyenDi_XeKhach">
+    <End Role="XeKhach" Type="OuBusModel.XeKhach" Multiplicity="0..1" />
+    <End Role="ChuyenDi" Type="OuBusModel.ChuyenDi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XeKhach">
+        <PropertyRef Name="MaXe" />
+      </Principal>
+      <Dependent Role="ChuyenDi">
+        <PropertyRef Name="MaXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VeXe_ChuyenDi">
+    <End Role="ChuyenDi" Type="OuBusModel.ChuyenDi" Multiplicity="0..1" />
+    <End Role="VeXe" Type="OuBusModel.VeXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenDi">
+        <PropertyRef Name="MaChuyenDi" />
+      </Principal>
+      <Dependent Role="VeXe">
+        <PropertyRef Name="MaChuyenDi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NhanVien_PhanLoaiNhanVien">
+    <End Role="PhanLoaiNhanVien" Type="OuBusModel.PhanLoaiNhanVien" Multiplicity="0..1" />
+    <End Role="NhanVien" Type="OuBusModel.NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanLoaiNhanVien">
+        <PropertyRef Name="MaLoaiNhanVien" />
+      </Principal>
+      <Dependent Role="NhanVien">
+        <PropertyRef Name="MaLoaiNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoanDangNhap_NhanVien">
+    <End Role="NhanVien" Type="OuBusModel.NhanVien" Multiplicity="0..1" />
+    <End Role="TaiKhoanDangNhap" Type="OuBusModel.TaiKhoanDangNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="TaiKhoanDangNhap">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VeXe_NhanVien">
+    <End Role="NhanVien" Type="OuBusModel.NhanVien" Multiplicity="0..1" />
+    <End Role="VeXe" Type="OuBusModel.VeXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="VeXe">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XeKhach_NhanVien">
+    <End Role="NhanVien" Type="OuBusModel.NhanVien" Multiplicity="0..1" />
+    <End Role="XeKhach" Type="OuBusModel.XeKhach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="XeKhach">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoanDangNhap_PhanQuyen">
+    <End Role="PhanQuyen" Type="OuBusModel.PhanQuyen" Multiplicity="0..1" />
+    <End Role="TaiKhoanDangNhap" Type="OuBusModel.TaiKhoanDangNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanQuyen">
+        <PropertyRef Name="MaQuyen" />
+      </Principal>
+      <Dependent Role="TaiKhoanDangNhap">
+        <PropertyRef Name="MaQuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="pr_TKDT_Result">
+    <Property Type="Int32" Name="MaChuyenDi" Nullable="false" />
+    <Property Type="Int32" Name="MaXe" Nullable="true" />
+    <Property Type="DateTime" Name="NgayKhoiHanh" Nullable="true" />
+    <Property Type="Time" Name="ThoiGianKhoiHanh" Nullable="true" />
+    <Property Type="String" Name="DiemKhoiHanh" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DiemKetThuc" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="SoGheTrong" Nullable="true" />
+    <Property Type="Int32" Name="SoGheDat" Nullable="true" />
+    <Property Type="Int32" Name="GiaVe" Nullable="true" />
+    <Property Type="Int32" Name="Tong_Doanh_Thu" Nullable="true" />
+  </ComplexType>
   <ComplexType Name="TimKiemCD_Result">
     <Property Type="Int32" Name="MaChuyenDi" Nullable="false" />
     <Property Type="Int32" Name="MaXe" Nullable="true" />

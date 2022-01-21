@@ -10,15 +10,9 @@
 namespace OUBus
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ChuyenDi
+    public partial class pr_TKDT_Result
     {
-        public ChuyenDi()
-        {
-            this.VeXes = new HashSet<VeXe>();
-        }
-    
         public int MaChuyenDi { get; set; }
         public Nullable<int> MaXe { get; set; }
         public Nullable<System.DateTime> NgayKhoiHanh { get; set; }
@@ -28,9 +22,6 @@ namespace OUBus
         public Nullable<int> SoGheTrong { get; set; }
         public Nullable<int> SoGheDat { get; set; }
         public Nullable<int> GiaVe { get; set; }
-    
-        public virtual BaoCaoDoanhThuChuyenDi BaoCaoDoanhThuChuyenDi { get; set; }
-        public virtual XeKhach XeKhach { get; set; }
-        public virtual ICollection<VeXe> VeXes { get; set; }
+        public Nullable<int> Tong_Doanh_Thu { get; set; }
     }
 }

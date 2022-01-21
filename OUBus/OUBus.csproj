@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +60,7 @@
     <Compile Include="BaoCaoDoanhThuChuyenDi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BUS\ChuyenDi_BUS.cs" />
     <Compile Include="BUS\NhanVien_BUS.cs" />
     <Compile Include="BUS\TaiKhoan_BUS.cs" />
     <Compile Include="BUS\VeXe_BUS.cs" />
@@ -112,6 +114,12 @@
     <Compile Include="FrmNhanVien.Designer.cs">
       <DependentUpon>FrmNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmThemCD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThemCD.Designer.cs">
+      <DependentUpon>FrmThemCD.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmThemNV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,7 +170,7 @@
     <Compile Include="FrmQLCD.Designer.cs">
       <DependentUpon>FrmQLCD.cs</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="pr_TKDT_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="TaiKhoanDangNhap.cs">
@@ -216,6 +224,9 @@
     <EmbeddedResource Include="FrmQuanLy.resx">
       <DependentUpon>FrmQuanLy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmThemCD.resx">
+      <DependentUpon>FrmThemCD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmThemNV.resx">
       <DependentUpon>FrmThemNV.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,8 +253,18 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -270,18 +291,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

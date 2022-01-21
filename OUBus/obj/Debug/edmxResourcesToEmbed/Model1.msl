@@ -54,17 +54,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="OuBusModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TaiKhoanDangNhaps">
       <EntityTypeMapping TypeName="OuBusModel.TaiKhoanDangNhap">
         <MappingFragment StoreEntitySet="TaiKhoanDangNhap">
@@ -102,6 +91,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="pr_TKDT" FunctionName="OuBusModel.Store.pr_TKDT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OuBusModel.pr_TKDT_Result">
+          <ScalarProperty Name="MaChuyenDi" ColumnName="MaChuyenDi" />
+          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+          <ScalarProperty Name="NgayKhoiHanh" ColumnName="NgayKhoiHanh" />
+          <ScalarProperty Name="ThoiGianKhoiHanh" ColumnName="ThoiGianKhoiHanh" />
+          <ScalarProperty Name="DiemKhoiHanh" ColumnName="DiemKhoiHanh" />
+          <ScalarProperty Name="DiemKetThuc" ColumnName="DiemKetThuc" />
+          <ScalarProperty Name="SoGheTrong" ColumnName="SoGheTrong" />
+          <ScalarProperty Name="SoGheDat" ColumnName="SoGheDat" />
+          <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+          <ScalarProperty Name="Tong_Doanh_Thu" ColumnName="Tong Doanh Thu" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="SuaThongTinChuyenDi" FunctionName="OuBusModel.Store.SuaThongTinChuyenDi" />
     <FunctionImportMapping FunctionImportName="SuaThongTinNV" FunctionName="OuBusModel.Store.SuaThongTinNV" />
     <FunctionImportMapping FunctionImportName="SuaThongTinVeXe" FunctionName="OuBusModel.Store.SuaThongTinVeXe" />
@@ -109,10 +114,6 @@
     <FunctionImportMapping FunctionImportName="ThemTaiKhoan" FunctionName="OuBusModel.Store.ThemTaiKhoan" />
     <FunctionImportMapping FunctionImportName="ThemThongTinNV" FunctionName="OuBusModel.Store.ThemThongTinNV" />
     <FunctionImportMapping FunctionImportName="ThemVeXe" FunctionName="OuBusModel.Store.ThemVeXe" />
-    <FunctionImportMapping FunctionImportName="XoaChuyenDi" FunctionName="OuBusModel.Store.XoaChuyenDi" />
-    <FunctionImportMapping FunctionImportName="XoaTaiKhoan" FunctionName="OuBusModel.Store.XoaTaiKhoan" />
-    <FunctionImportMapping FunctionImportName="XoaThongTinNV" FunctionName="OuBusModel.Store.XoaThongTinNV" />
-    <FunctionImportMapping FunctionImportName="XoaVeXe" FunctionName="OuBusModel.Store.XoaVeXe" />
     <FunctionImportMapping FunctionImportName="TimKiemCD" FunctionName="OuBusModel.Store.TimKiemCD">
       <ResultMapping>
         <ComplexTypeMapping TypeName="OuBusModel.TimKiemCD_Result">
@@ -206,5 +207,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="XoaChuyenDi" FunctionName="OuBusModel.Store.XoaChuyenDi" />
+    <FunctionImportMapping FunctionImportName="XoaTaiKhoan" FunctionName="OuBusModel.Store.XoaTaiKhoan" />
+    <FunctionImportMapping FunctionImportName="XoaThongTinNV" FunctionName="OuBusModel.Store.XoaThongTinNV" />
+    <FunctionImportMapping FunctionImportName="XoaVeXe" FunctionName="OuBusModel.Store.XoaVeXe" />
   </EntityContainerMapping>
 </Mapping>

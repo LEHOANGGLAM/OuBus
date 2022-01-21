@@ -47,20 +47,22 @@ namespace OUBus
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GVCD = new System.Windows.Forms.DataGridView();
             this.Thgiankhoihanh = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtGioKhoiHanh = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.GVCD)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Pacifico", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(390, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 68);
+            this.label1.Size = new System.Drawing.Size(238, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Lịch chuyến đi";
             // 
@@ -192,6 +194,7 @@ namespace OUBus
             this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -201,6 +204,7 @@ namespace OUBus
             this.btnSua.TabIndex = 8;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThoat
             // 
@@ -212,13 +216,14 @@ namespace OUBus
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // dataGridView1
+            // GVCD
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 196);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(943, 475);
-            this.dataGridView1.TabIndex = 8;
+            this.GVCD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GVCD.Location = new System.Drawing.Point(0, 196);
+            this.GVCD.Name = "GVCD";
+            this.GVCD.Size = new System.Drawing.Size(943, 475);
+            this.GVCD.TabIndex = 8;
+            this.GVCD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVCD_CellContentClick);
             // 
             // Thgiankhoihanh
             // 
@@ -226,6 +231,23 @@ namespace OUBus
             this.Thgiankhoihanh.Name = "Thgiankhoihanh";
             this.Thgiankhoihanh.Size = new System.Drawing.Size(200, 20);
             this.Thgiankhoihanh.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(345, 162);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Giờ Khởi Hành";
+            // 
+            // txtGioKhoiHanh
+            // 
+            this.txtGioKhoiHanh.Location = new System.Drawing.Point(424, 159);
+            this.txtGioKhoiHanh.Name = "txtGioKhoiHanh";
+            this.txtGioKhoiHanh.Size = new System.Drawing.Size(147, 20);
+            this.txtGioKhoiHanh.TabIndex = 3;
             // 
             // FrmQLCD
             // 
@@ -235,10 +257,11 @@ namespace OUBus
             this.BackgroundImage = global::OUBus.Properties.Resources.Background2;
             this.ClientSize = new System.Drawing.Size(1137, 608);
             this.Controls.Add(this.Thgiankhoihanh);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.GVCD);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.txtGioKhoiHanh);
             this.Controls.Add(this.txtDiemketthuc);
             this.Controls.Add(this.txtTimkiem);
             this.Controls.Add(this.txtDiemkhoihanh);
@@ -249,6 +272,7 @@ namespace OUBus
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -256,7 +280,8 @@ namespace OUBus
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmQLCD";
             this.Text = "Quản lý chuyến đi ";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmQLCD_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.GVCD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,7 +306,9 @@ namespace OUBus
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GVCD;
         private System.Windows.Forms.DateTimePicker Thgiankhoihanh;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtGioKhoiHanh;
     }
 }

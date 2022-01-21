@@ -46,10 +46,10 @@ namespace OUBus
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Pacifico", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(328, -2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 68);
+            this.label1.Size = new System.Drawing.Size(349, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thống kê doanh thu ";
             // 
@@ -105,6 +105,7 @@ namespace OUBus
             this.btnTimKiem.TabIndex = 4;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // label4
             // 
